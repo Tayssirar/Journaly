@@ -13,11 +13,11 @@ export const MenuList = {
         content: [
           {
             title: "Voir Mon Profil",
-            to: "headmaster-profile",
+            to: "headmasterProfile",
           },
           {
             title: "Modifier Mon Profil",
-            to: "edit-headmaster-profile",
+            to: "UpdateHeadmasterProfile",
           },
         ],
       },
@@ -26,7 +26,7 @@ export const MenuList = {
         title: 'Calendrier',	
         classsChange: 'mm-collapse',
         iconStyle: <i className="la la-calendar" />,
-        to: 'app-calender'
+Cto: 'a'
 
       },
         //Management
@@ -42,11 +42,11 @@ export const MenuList = {
         content: [
           {
             title: "Voir Mon École",
-            to: "school-profile",
+            to: "SchoolProfile",
           },
           {
             title: "Modifier Mon École",
-            to: "edit-school-profile",
+            to: "UpdateSchoolProfile",
           },
         ],
       },
@@ -57,19 +57,19 @@ export const MenuList = {
         content: [
           {
             title: "Voir les enseignants",
-            to: "teacher-list",
+            to: "AllTeachers",
           },
           {
             title: "Modifier Un Enseignant",
-            to: "edit-teacher",
+            to: "UpdateTeacher",
           },
           {
             title: "Ajouter Un Enseignant",
-            to: "add-teacher",
+            to: "AddTeacher",
           },
           {
             title: "Supprimer Un Enseignant",
-            to: "delete-teacher",
+            to: "DeleteTeacher",
           },
         ],
       },
@@ -80,24 +80,24 @@ export const MenuList = {
         content: [
           {
             title: "Voir les élèves",
-            to: "students-list",
+            to: "AllStudents",
           },
           {
             title: "Modifier Un Élève",
-            to: "edit-student",
+            to: "UpdateStudent",
           },
           {
             title: "Ajouter Un Élève",
-            to: "add-student",
+            to: "AddStudent",
           },
           {
             title: "Supprimer Un Élève",
-            to: "delete-student",
+            to: "DeleteStudent",
           },
         ],
       }
     ],
-    teacher: [
+    Teacher: [
       {
         title: "Accueil",
         to: "TeacherDashboard",
@@ -111,11 +111,11 @@ export const MenuList = {
         content: [
           {
             title: "Profil",
-            to: "teacher-profile",
+            to: "TeacherProfile",
           },
           {
             title: "Modifier Mon Profil",
-            to: "edit-teacher-profile",
+            to: "UpdateTeacherProfile",
           },
         ],
       },
@@ -124,13 +124,13 @@ export const MenuList = {
         title: 'Calendrier',	
         classsChange: 'mm-collapse',
         iconStyle: <i className="la la-calendar" />,
-        to: 'app-calender'
+        to: 'Calendar',
 
       },
         //Management
         {
             title: "Gestion d'événements",	        
-            to:"event-management",
+            to:"eventManagement",
             iconStyle: <i className="la la-calendar-plus-o" />,        
         },
       {
@@ -140,7 +140,7 @@ export const MenuList = {
         content: [
           {
             title: "Voir Mon École",
-            to: "school-profile",
+            to: "SchoolProfile",
           },
         ],
       },
@@ -151,7 +151,7 @@ export const MenuList = {
         content: [
           {
             title: "Voir les élèves",
-            to: "students-list",
+            to: "AllStudents ",
           },
         ],
       },
@@ -163,15 +163,15 @@ export const MenuList = {
         content: [
             {
                 title: 'Toutes Les Planification',
-                to: 'all-plan',					
+                to: 'AllPlan',					
             },
             {
                 title: 'Ajouter une Planification',
-                to: 'add-plan',
+                to: 'AddPlan',
             },
             {
                 title: 'Modifier une Planification',
-                to: 'edit-plan',
+                to: 'UpdatePlan',
             },
           
         ],
@@ -184,15 +184,15 @@ export const MenuList = {
         content: [
             {
                 title: 'Tous les cahiers Journal',
-                to: 'all-journal',					
+                to: 'AllJournal',					
             },
             {
                 title: 'Ajouter un Journal',
-                to: 'add-journal',
+                to: 'AddJournal',
             },
             {
                 title: 'Modifier un Journal',
-                to: 'edit-journal',
+                to: 'UpdateJournal',
             },            
         ],
     },
@@ -204,15 +204,15 @@ export const MenuList = {
         content: [
             {
                 title: 'Tous les examens',
-                to: 'all-journal',					
+                to: 'AllExams',					
             },
             {
                 title: 'Ajouter un examen',
-                to: 'add-journal',
+                to: 'AddExam',
             },
             {
                 title: 'Modifier un examen',
-                to: 'edit-journal',
+                to: 'UpdateExam',
             },            
         ],
     },
@@ -224,13 +224,13 @@ export const MenuList = {
             content: [
                 {
                     title: 'Voir les rapports',
-                    to: 'all-journal',					
+                    to: 'AllRapport',					
                 },
             ]
               }
 
     ],
-    student: [
+    Inspector: [
       {
         title: "Student Menu",
         classsChange: "menu-title",
@@ -238,7 +238,7 @@ export const MenuList = {
       },
       {
         title: "Accueil",
-        to: "dashboard",
+        to: "InspectorDashboard",
         classsChange: "mm-collapse",
         iconStyle: <i className="la la-home" />,
       },
@@ -246,27 +246,11 @@ export const MenuList = {
         title: "Calendrier",
         classsChange: "mm-collapse",
         iconStyle: <i className="la la-users" />,
-        to: "app-calender",
+        to: "calendrier",
       },
-      {
-        title: "Journal",
-        classsChange: "mm-collapse",
-        iconStyle: <i className="la la-book" />,
-        content: [
-          {
-            title: "Tous les Journals",
-            to: "all-library",
-          },
-          {
-            title: "Ajouter un Journal",
-            to: "add-library",
-          },
-          {
-            title: "Modifier un Journal",
-            to: "edit-library",
-          },
-        ],
-      },
+      
+
+
     ],
   };
   
