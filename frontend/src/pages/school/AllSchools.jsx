@@ -3,11 +3,11 @@ import PageTitle from '../../components/PageTitle'
 import { Dropdown, Row, Tab, TabContainer } from 'react-bootstrap'
 import ListGridView from '../../components/ListGridView'
 import { Link } from 'react-router-dom'
-import { theadTeacherData } from '../../components/UserTheadData'
+import { theadSchoolData } from '../../components/UserTheadData'
 
 
-function AllTeachers() {
-const [teachers, setTeachers]= useState ([]);
+function AllSchools() {
+const [schools, setSchools]= useState ([]);
 const [sort, setSortData] = useState(10);
 const [data, setData] = useState([]);
 const [activePage, setActivePage] = useState(0);
@@ -33,11 +33,11 @@ const onClick = (i) => {
   chargeData(activePage.current * sort, (activePage.current + 1) * sort)
 }
   function DataSearch(e){  
-    const updatesData =  teachers.filter(item =>{            
-        let selectdata = `${item.nom} ${item.region} ${item.sexe} ${item.diplome} ${item.nomination} ${item.mobile} ${item.email}`.toLowerCase();                          
+    const updatesData =  schools.filter(item =>{            
+        let selectdata = `${item.nom} ${item.region} ${item.adresse} `.toLowerCase();                          
         return  selectdata.includes(e.target.value.toLowerCase())
     });        
-    setTeachers([...updatesData]);
+    setSchools([...updatesData]);
     setActivePage(0);        
 }
   
@@ -53,7 +53,7 @@ const onClick = (i) => {
                   <div className='card'>
                     <div className="card-header">
                       <h4 className="card-title">Tous les enseignants </h4>
-                      <Link to={"/AddTeacher"} className="btn btn-primary">+ Ajouter Un Nouveau</Link>
+                      <Link to={"/AddSchool"} className="btn btn-primary">+ Ajouter Un Nouveau</Link>
                     </div>
                     <div className='card-body'>
                       <div  className='dataTables_wrapper no-footer'>
@@ -89,7 +89,7 @@ const onClick = (i) => {
                           <table  className='className="display dataTable no-footer w-100'>
                               <thead>
                                 <tr>                                                
-                                  {theadTeacherData.map((item, ind)=>(
+                                  {theadSchoolData.map((item, ind)=>(
                                     <th key={ind}
                                     >{item.heading}
                                     </th>
@@ -97,7 +97,7 @@ const onClick = (i) => {
                                 </tr>
                               </thead>
                               <tbody>
-                                {teachers.map((data, ind)=>(
+                                {schools.map((data, ind)=>(
                                   <tr key={ind}>
                                     <td><img className="rounded-circle" width="35" src={data.profile} alt="" /> </td>                                                                                                                       
                                     <td>{data.nom}</td>                                                    
@@ -108,8 +108,8 @@ const onClick = (i) => {
                                     <td>{data.mobile}</td>
                                     <td>{data.email}</td>
                                     <td>
-                                      <Link to={"/UpdateTeacher"} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
-                                      <Link to={"/DeleteTeacher"} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
+                                      <Link to={"/UpdateSchool"} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
+                                      <Link to={"/DeleteSchool"} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
                                     </td>
                                   </tr>
                                 ))}
@@ -170,7 +170,7 @@ const onClick = (i) => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="Grid" className="col-lg-12">
                 <div className="row">
-                  {teachers.map((teacher, index) => (
+                  {schools.map((School, index) => (
                     <div className="col-lg-4 col-md-6 col-sm-6 col-12" key={index}>
                       <div className="card card-profile">
                         <div className="card-header justify-content-end pb-0 border-0">
@@ -180,8 +180,8 @@ const onClick = (i) => {
                             </Dropdown.Toggle>
                             <Dropdown.Menu align="end" className="dropdown-menu dropdown-menu-right border py-0">
                               <div className="py-2">
-                                <Link to={"/UpdateTeacher"} className="dropdown-item">Modifier</Link>
-                                <Link to={"/DeleteTeacher"} className="dropdown-item text-danger">Supprimer</Link>
+                                <Link to={"/UpdateSchool"} className="dropdown-item">Modifier</Link>
+                                <Link to={"/DeleteSchool"} className="dropdown-item text-danger">Supprimer</Link>
                               </div>
                             </Dropdown.Menu>
                           </Dropdown>
@@ -189,16 +189,16 @@ const onClick = (i) => {
                         <div className="card-body pt-2">
                           <div className="text-center">
                             <div className="profile-photo">
-                              <img src={teacher.profile} width="100" className="img-fluid rounded-circle" alt="" />
+                              <img src={School.profile} width="100" className="img-fluid rounded-circle" alt="" />
                             </div>
                             <ul className="list-group mb-3 list-group-flush">
-                              {Object.keys(teacher).map((key, ind) => (
+                              {Object.keys(School).map((key, ind) => (
                                 <li className="list-group-item px-0 d-flex justify-content-between" key={ind}>
-                                 <strong> {key}: </strong>{teacher[key]}
+                                 <strong> {key}: </strong>{School[key]}
                                 </li>
                               ))}
                             </ul>
-                            <Link to={"/TeacherProfile"} className="btn btn-outline-primary btn-rounded mt-3 px-4">Afficher Profil</Link>
+                            <Link to={"/SchoolProfile"} className="btn btn-outline-primary btn-rounded mt-3 px-4">Afficher Profil</Link>
                           </div>
                         </div>
                       </div>
@@ -213,4 +213,4 @@ const onClick = (i) => {
     </div>
   );
 }
-export default AllTeachers
+export default AllSchools

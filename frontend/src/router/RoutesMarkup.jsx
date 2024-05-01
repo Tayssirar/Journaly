@@ -41,6 +41,11 @@ import AllHeadmasters from '../pages/headmaster/AllHeadmasters';
 import AddHeadmaster from '../pages/headmaster/AddHeadmaster';
 import UpdateHeadmaster from '../pages/headmaster/UpdateHeadmaster';
 import DeleteHeadmaster from '../pages/headmaster/DeleteHeadmaster';
+//School
+import AllSchools from '../pages/school/AllSchools';
+import AddSchool from '../pages/school/AddSchool';
+import UpdateSchool from '../pages/school/UpdateSchool';
+import DeleteSchool from '../pages/school/DeleteSchool';
 
 
 
@@ -75,10 +80,15 @@ const RoutesMarkup = () => {
     { url: "/UpdateStudent", component: UpdateStudent },
     { url: "/DeleteStudent", component: DeleteStudent },
     //Assistant
-    { url: "/AllAssistant", component: AllAssistants },
+    { url: "/AllAssistants", component: AllAssistants },
     { url: "/AddAssistant", component: AddAssistant },
     { url: "/UpdateAssistant", component: UpdateAssistant },
     { url: "/DeleteAssistant", component: DeleteAssistant },
+    //School
+    { url: "/AllSchools", component: AllSchools },
+    { url: "/AddSchool", component: AddSchool },
+    { url: "/UpdateSchool", component: UpdateSchool },
+    { url: "/DeleteSchool", component: DeleteSchool },
 
   ];
 

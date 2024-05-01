@@ -56,12 +56,8 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
-@import url("./../icons/simple-line-icons/css/simple-line-icons.css");
 @import url("./../icons/fontawesome/css/all.min.css");
-@import url("./../icons/material-design-iconic-font/css/materialdesignicons.min.css");
-@import url("./../icons/themify-icons/css/themify-icons.css");
 @import url("./../icons/line-awesome/css/line-awesome.min.css");
-@import url("./../icons/avasta/css/style.css");
 @import url("./../icons/flaticon/flaticon.css");
 
 :root {
@@ -4061,7 +4057,7 @@ textarea.form-control-lg {
     float: left;
     padding-right: var(--bs-breadcrumb-item-padding-x);
     color: var(--bs-breadcrumb-divider-color);
-    content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */; }
+    content: var(--bs-breadcrumb-divider, "/") /*; rtl: var(--bs-breadcrumb-divider, "/") */; }
 
 .breadcrumb-item.active {
   color: var(--bs-breadcrumb-item-active-color); }

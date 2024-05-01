@@ -67,6 +67,9 @@ export function loginAction(email, password, navigate, userRole) {
                 // Dispatch loginConfirmedAction and navigate based on roleToRedirect
                 dispatch(loginConfirmedAction(response.data, roleToRedirect));
                 switch (roleToRedirect) {
+                    case 'admin':
+                        navigate('/AdminDashboard');
+                        break;
                     case 'headmaster':
                         navigate('/HeadmasterDashboard');
                         break;
@@ -80,7 +83,7 @@ export function loginAction(email, password, navigate, userRole) {
                         navigate('/TeacherDashboard');
                         break;
                     default:
-                        navigate('/chooseRole'); 
+                        navigate('/chooseUer'); 
                         break;
 
                 }

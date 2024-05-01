@@ -10,7 +10,7 @@ const LockScreen = () => {
   const nav = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
-    nav("/dashboard");
+    nav("/chooseUser");
   };
   return (
     <div className="fix-wrapper ">
@@ -21,7 +21,7 @@ const LockScreen = () => {
               
                     <div className="card-body">
                       <div className="text-center mb-2">
-                        <Link to="/dashboard"> 
+                        <Link to="/chooseUser"> 
                         </Link>
                       </div>
                     <h4 className="text-center mb-4 ">Account Locked</h4>

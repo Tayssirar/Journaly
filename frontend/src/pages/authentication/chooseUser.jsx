@@ -16,6 +16,24 @@ function ChooseUser(props) {
                     <Col xl="6">
                         <Card>
                             <Link
+                                to="/login?role=admin"
+                                className="card-link"
+                                onClick={() => handleRoleSelect('admin')}
+                            >
+                                <Card.Header className="border-0 pb-0">
+                                    <Card.Title>Admin</Card.Title>
+                                </Card.Header>
+                                <Card.Body>
+                                    <Card.Text>
+                                        Connectez-vous en tant qu'un administrateur pour gérer les données.
+                                    </Card.Text>
+                                </Card.Body>
+                            </Link>
+                        </Card>
+                    </Col>
+                    <Col xl="6">
+                        <Card>
+                            <Link
                                 to="/login?role=headmaster"
                                 className="card-link"
                                 onClick={() => handleRoleSelect('headmaster')}
@@ -67,7 +85,7 @@ function ChooseUser(props) {
                             </Link>
                         </Card>
                     </Col>
-                    <Col xl="6">
+                    <Col xl="6 ">
                         <Card>
                             <Link
                                 to="/login?role=teacher"
