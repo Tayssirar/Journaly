@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DeleteStudent() {
+function StudentProfile() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function DeleteStudent() {
   )
 }
 
-export default DeleteStudent
+export default StudentProfile

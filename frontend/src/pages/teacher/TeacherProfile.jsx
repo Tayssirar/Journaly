@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DeleteAssistant() {
+function TeacherProfile() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function DeleteAssistant() {
   )
 }
 
-export default DeleteAssistant
+export default TeacherProfile

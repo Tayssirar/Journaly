@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DeleteInspector() {
+function SchoolProfile() {
   return (
     <div>
       
@@ -8,5 +8,4 @@ function DeleteInspector() {
   )
 }
 
-export default DeleteInspector
-
+export default SchoolProfile

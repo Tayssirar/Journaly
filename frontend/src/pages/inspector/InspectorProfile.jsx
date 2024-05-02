@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DeleteHeadmaster() {
+function InspectorProfile() {
   return (
     <div>
       
@@ -8,4 +8,5 @@ function DeleteHeadmaster() {
   )
 }
 
-export default DeleteHeadmaster
+export default InspectorProfile
+

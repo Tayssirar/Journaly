@@ -1,5 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
+//css
 //Dashboard
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import AssistantDashboard from '../pages/assistant/AssistantDashboard';
@@ -20,32 +22,32 @@ import ScrollToTop from '../layout/scrollToTop';
 import AllTeachers from '../pages/teacher/AllTeachers';
 import AddTeacher from '../pages/teacher/AddTeacher';
 import UpdateTeacher from '../pages/teacher/UpdateTeacher';
-import DeleteTeacher from '../pages/teacher/DeleteTeacher';
+import  TeacherProfile from '../pages/teacher/TeacherProfile';
 //Student
 import AllStudents from '../pages/student/AllStudents';
 import AddStudent from '../pages/student/AddStudent';
 import UpdateStudent from '../pages/student/UpdateStudent';
-import DeleteStudent from '../pages/student/DeleteStudent';
+import  StudentProfile from '../pages/student/StudentProfile';
 //Inspector
 import AllInspectors from '../pages/inspector/AllInspectors';
 import AddInspector from '../pages/inspector/AddInspector';
 import UpdateInspector from '../pages/inspector/UpdateInspector';
-import DeleteInspector from '../pages/inspector/DeleteInspector';
+import  InspectorProfile from '../pages/inspector/InspectorProfile';
 //Assistant
 import AllAssistants from '../pages/assistant/AllAssistants';
 import AddAssistant from '../pages/assistant/AddAssistant';
 import UpdateAssistant from '../pages/assistant/UpdateAssistant';
-import DeleteAssistant from '../pages/assistant/DeleteAssistant';
+import  AssistantProfile from '../pages/assistant/AssistantProfile';
 //Headmaster
 import AllHeadmasters from '../pages/headmaster/AllHeadmasters';
 import AddHeadmaster from '../pages/headmaster/AddHeadmaster';
 import UpdateHeadmaster from '../pages/headmaster/UpdateHeadmaster';
-import DeleteHeadmaster from '../pages/headmaster/DeleteHeadmaster';
+import  HeadmasterProfile from '../pages/headmaster/HeadmasterProfile';
 //School
 import AllSchools from '../pages/school/AllSchools';
 import AddSchool from '../pages/school/AddSchool';
 import UpdateSchool from '../pages/school/UpdateSchool';
-import DeleteSchool from '../pages/school/DeleteSchool';
+import  SchoolProfile from '../pages/school/SchoolProfile';
 
 
 
@@ -63,32 +65,32 @@ const RoutesMarkup = () => {
     { url: "/AllTeachers", component: AllTeachers },
     { url: "/AddTeacher", component: AddTeacher },
     { url: "/UpdateTeacher", component: UpdateTeacher },
-    { url: "/DeleteTeacher", component: DeleteTeacher },
+    { url: "/TeacherProfile", component:  TeacherProfile },
     //Headmaster
     { url: "/AllHeadmasters", component: AllHeadmasters },
     { url: "/AddHeadmaster", component: AddHeadmaster },
     { url: "/UpdateHeadmaster", component: UpdateHeadmaster },
-    { url: "/DeleteHeadmaster", component: DeleteHeadmaster },
+    { url: "/HeadmasterProfile", component:  HeadmasterProfile },
     //Inspector
     { url: "/AllInspectors", component: AllInspectors },
     { url: "/AddInspector", component: AddInspector },
     { url: "/UpdateInspector", component: UpdateInspector },
-    { url: "/DeleteInspector", component: DeleteInspector },
+    { url: "/InspectorProfile", component:  InspectorProfile },
     //Student
     { url: "/AllStudents", component: AllStudents },
     { url: "/AddStudent", component: AddStudent },
     { url: "/UpdateStudent", component: UpdateStudent },
-    { url: "/DeleteStudent", component: DeleteStudent },
+    { url: "/StudentProfile", component:  StudentProfile },
     //Assistant
     { url: "/AllAssistants", component: AllAssistants },
     { url: "/AddAssistant", component: AddAssistant },
     { url: "/UpdateAssistant", component: UpdateAssistant },
-    { url: "/DeleteAssistant", component: DeleteAssistant },
+    { url: "/AssistantProfile", component:  AssistantProfile },
     //School
     { url: "/AllSchools", component: AllSchools },
     { url: "/AddSchool", component: AddSchool },
     { url: "/UpdateSchool", component: UpdateSchool },
-    { url: "/DeleteSchool", component: DeleteSchool },
+    { url: "/SchoolProfile", component:  SchoolProfile },
 
   ];
 

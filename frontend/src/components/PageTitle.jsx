@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PageTitle = ({ motherMenu, activeMenu, pageContent }) => {
+const PageTitle = ({ motherMenu, activeMenu}) => {
   
 
   return (   

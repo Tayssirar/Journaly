@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DeleteTeacher() {
+function HeadmasterProfile() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function DeleteTeacher() {
   )
 }
 
-export default DeleteTeacher
+export default HeadmasterProfile

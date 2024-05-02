@@ -2,6 +2,8 @@ import React from 'react'
 import { Route,  Routes } from 'react-router-dom'
 import Login from './pages/authentication/Login'
 import './assets/css/style.css'
+import 'rsuite/dist/rsuite-no-reset.min.css';
+
 
 import ChooseUser from './pages/authentication/chooseUser'
 import Home from './pages/home'

@@ -3,7 +3,7 @@ import PageTitle from '../../components/PageTitle'
 import { Dropdown, Row, Tab, TabContainer } from 'react-bootstrap'
 import ListGridView from '../../components/ListGridView'
 import { Link } from 'react-router-dom'
-import { theadHeadmasterData } from '../../components/UserTheadData'
+import { theadHeadmasterData } from '../../data/TheadData'
 
 
 function AllHeadmasters() {

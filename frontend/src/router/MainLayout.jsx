@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { useSelector, connect} from "react-redux";
 import { ThemeContext } from "../assets/context/ThemeContext";
 import NavDash from '../layout/nav/NavDash';
-import Footer from '../layout/Footer';
+import Footer from '../components/Footer';
 import { Outlet } from 'react-router-dom';
 import { getUserRole } from "../store/selectors/AuthSelectors";
 

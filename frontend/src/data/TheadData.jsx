@@ -55,4 +55,6 @@ const theadTeacherData = [
     { heading: 'Date de naissance', sortingValue: 'birthdate' },
   ];
 
-  export { theadTeacherData,theadHeadmasterData,theadInspectorData, theadAssistantData,theadSchoolData, theadStudentData };
+  export { theadTeacherData,theadHeadmasterData,
+    theadInspectorData, theadAssistantData,
+    theadSchoolData, theadStudentData };
