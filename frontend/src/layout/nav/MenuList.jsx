@@ -303,7 +303,7 @@ export const MenuList = {
         ],
       }
     ],
-    Teacher: [
+    teacher: [
       {
         title: "Accueil",
         to: "TeacherDashboard",

@@ -48,7 +48,9 @@ import AllSchools from '../pages/school/AllSchools';
 import AddSchool from '../pages/school/AddSchool';
 import UpdateSchool from '../pages/school/UpdateSchool';
 import  SchoolProfile from '../pages/school/SchoolProfile';
-
+//Planification
+import AllPlan from '../pages/planification/AllPlan';
+import AddPlan from '../pages/planification/AddPlan';
 
 
 
@@ -91,6 +93,9 @@ const RoutesMarkup = () => {
     { url: "/AddSchool", component: AddSchool },
     { url: "/UpdateSchool", component: UpdateSchool },
     { url: "/SchoolProfile", component:  SchoolProfile },
+    //Planification
+    { url: "/AllPlan", component: AllPlan},
+    {url: "/AddPlan", component: AddPlan},
 
   ];
 

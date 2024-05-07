@@ -38,7 +38,34 @@ const RegionOption = [
     { value: '23', label: 'Sidi Bouzid' },
     { value: '24', label: 'Kebili' }
 ];
- export{GenreOption, 
+const education_a_Option=[
+    {value:'1', label:' la citoyenneté'},
+    {value:'2', label:"l'environnement"},
+    {value:'3', label:'la santé'},
+    {value:'4', label:'la sécurité'},
+];
+
+const lectureOption=[
+    {value:'1', label:'compréhension'},
+    {value:'2', label:'fonctionnement'},
+    {value:'3', label:'documentaire'},
+    {value:'4', label:'action'},
+    {value:'5', label:'page vocabulaire'},
+    {value:'6', label:'suivie'},
+]
+const lifeSkillOptions=[
+    {value:'1', label:'La communication'},
+    {value:'2', label:'La créativité'},
+    {value:'3', label:'La résilience'},
+    {value:'4', label:'La pensée critique'},
+    {value:'5', label:'la résolution de problème'},
+    {value:'6', label:'la '},
+]
+
+export{GenreOption, 
     RegionOption,
     ClasseOption,
+    education_a_Option,
+    lectureOption,
+    lifeSkillOptions,
 };

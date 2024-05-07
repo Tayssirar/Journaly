@@ -894,7 +894,18 @@ progress {
 @media (min-width: 1440) {
   .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
     max-width: 1320px; } }
-
+.doc-container{
+  display: flex;
+}
+  .text-area {
+    flex: 1; /* Take up 50% of the container width */
+    padding: 10px;
+  }
+  
+.document-preview {
+    flex: 1; /* Take up 50% of the container width */
+    padding: 10px;
+  }
 :root {
   --bs-breakpoint-xs: 0;
   --bs-breakpoint-sm: 576px;
