@@ -61,6 +61,14 @@ const lifeSkillOptions=[
     {value:'5', label:'la résolution de problème'},
     {value:'6', label:'la '},
 ]
+const EventTypeOptions = [
+    { value: '1', label: 'Journée pédagogique' },
+    { value: '2', label: 'Leçon témoin' },
+    { value: '3', label: 'Formation' },
+    { value: '4', label: 'Réenion' },
+    { value: '5', label: 'Évenement' },
+
+]
 
 export{GenreOption, 
     RegionOption,
@@ -68,4 +76,5 @@ export{GenreOption,
     education_a_Option,
     lectureOption,
     lifeSkillOptions,
+    EventTypeOptions,
 };

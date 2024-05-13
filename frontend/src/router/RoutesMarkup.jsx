@@ -51,7 +51,14 @@ import  SchoolProfile from '../pages/school/SchoolProfile';
 //Planification
 import AllPlan from '../pages/planification/AllPlan';
 import AddPlan from '../pages/planification/AddPlan';
-
+//Journal
+import AddJournal from '../pages/Journal/AddJournal';
+//Events
+import AllEvents from '../pages/event/AllEvents';
+import AddEvent from '../pages/event/AddEvent';
+import UpdateEvent from '../pages/event/UpdateEvent';
+//Calendar
+import Calendar from '../pages/calendar/Calendar';
 
 
 
@@ -96,6 +103,14 @@ const RoutesMarkup = () => {
     //Planification
     { url: "/AllPlan", component: AllPlan},
     {url: "/AddPlan", component: AddPlan},
+    //Journal
+    {url: "/AddJournal", component: AddJournal},
+    //Event
+    {url: "/AllEvents", component: AllEvents},
+    {url: "/AddEvent", component: AddEvent},
+    {url: "/UpdateEvent", component: UpdateEvent},
+    //Calendar
+    {url:"/Calendar", component: Calendar},
 
   ];
 
