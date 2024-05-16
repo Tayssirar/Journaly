@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useRef} from 'react'
 import Select from 'react-select';
 import { Button } from "react-bootstrap";
 import {  lectureOption, lifeSkillOptions } from '../data/OptionData';
@@ -90,7 +90,10 @@ function PlanSection() {
       
     
   return (
-    <>
+    <div
+        style={{ height: "370px" }}
+        className="widget-timeline dz-scroll style-1 height370 my-4 px-4"
+    >
     {sections.map((section, index) => (
         <div key={index}>
         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -159,7 +162,7 @@ function PlanSection() {
         ) : null}
     </div>
     ))}
-</>
+</div>
   )
 }
 

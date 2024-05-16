@@ -53,12 +53,20 @@ import AllPlan from '../pages/planification/AllPlan';
 import AddPlan from '../pages/planification/AddPlan';
 //Journal
 import AddJournal from '../pages/Journal/AddJournal';
+import AllJournal from '../pages/Journal/AllJournal';
 //Events
 import AllEvents from '../pages/event/AllEvents';
 import AddEvent from '../pages/event/AddEvent';
 import UpdateEvent from '../pages/event/UpdateEvent';
 //Calendar
 import Calendar from '../pages/calendar/Calendar';
+import Home from '../pages/home';
+import Login from '../pages/authentication/Login';
+import ChooseUser from '../pages/authentication/chooseUser';
+import Register from '../pages/authentication/Registration';
+//Note
+import AllResults from '../pages/note/AllResults';
+import AddNote from '../pages/note/AddNote';
 
 
 
@@ -105,12 +113,17 @@ const RoutesMarkup = () => {
     {url: "/AddPlan", component: AddPlan},
     //Journal
     {url: "/AddJournal", component: AddJournal},
+    {url: "/AllJournal", component: AllJournal},
+
     //Event
     {url: "/AllEvents", component: AllEvents},
     {url: "/AddEvent", component: AddEvent},
     {url: "/UpdateEvent", component: UpdateEvent},
     //Calendar
     {url:"/Calendar", component: Calendar},
+    //Note
+    {url: "/AllNotes", component: AllResults},
+    {url:"/AddNote", component: AddNote}
 
   ];
 
@@ -134,6 +147,10 @@ const RoutesMarkup = () => {
         <Route path='/page-error-403' element={<Error403 />} />
         <Route path='/page-error-500' element={<Error500 />} />
         <Route path='/page-error-503' element={<Error503 />} />
+        <Route path='/' element={<Home />}/>
+        <Route path='/login' element={<Login />} />
+        <Route path='/chooseUser' element={<ChooseUser/>}/>
+        <Route path='/Register' element={<Register />}/>
 
         <Route element={<MainLayout />}>
 

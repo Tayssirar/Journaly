@@ -4,11 +4,11 @@ const GenreOption = [
 ]
 
 const ClasseOption = [
-    { value: '1', label: '2 <sup>ème</sup> année' },
-    { value: '2', label: '3 <sup>ème</sup> année' },
-    { value: '3', label: '4 <sup>ème</sup> année' },
-    { value: '4', label: '5 <sup>ème</sup> année' },
-    { value: '5', label: '5 <sup>ème</sup> année' },
+    { value: '1', label: '2ème année' },
+    { value: '2', label: '3ème année' },
+    { value: '3', label: '4ème année' },
+    { value: '4', label: '5ème année' },
+    { value: '5', label: '5ème année' },
 
 ]
 
@@ -69,6 +69,21 @@ const EventTypeOptions = [
     { value: '5', label: 'Évenement' },
 
 ]
+const EvaluationTypeOption = [
+    { value: '1', label: 'de prérequis' },
+    { value: '2', label: "au terme de l'unité 1" },
+    { value: '3', label: "au terme de l'unité 2" },
+    { value: '4', label: "au terme de l'unité 3" },
+    { value: '5', label: "au terme de l'unité 4" },
+    { value: '6', label: "au terme de l'unité 5" },
+    { value: '7', label: "au terme du trimestre 1" },
+    { value: '8', label: "au terme du trimestre 2" },
+    { value: '9', label: "au terme du trimestre 3" },
+]
+const NoteOption = [
+    { value: '1', label: 'nombre sur 20' },
+    { value: '2', label: "des symboles + et -" },
+]
 
 export{GenreOption, 
     RegionOption,
@@ -77,4 +92,6 @@ export{GenreOption,
     lectureOption,
     lifeSkillOptions,
     EventTypeOptions,
+    EvaluationTypeOption,
+    NoteOption,
 };

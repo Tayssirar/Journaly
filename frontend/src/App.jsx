@@ -9,17 +9,13 @@ import ChooseUser from './pages/authentication/chooseUser'
 import Home from './pages/home'
 import Register from './pages/authentication/Registration'
 import RoutesMarkup from './router/RoutesMarkup'
+import Error404 from './pages/error/Error404';
 
 
 function App() {
   return (
     <div>
-        <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/login' element={<Login />} />
-            <Route path='/chooseUser' element={<ChooseUser/>}/>
-            <Route path='/Register' element={<Register />}/>
-        </Routes>
+
         <RoutesMarkup />
 
     </div>

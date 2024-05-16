@@ -3,11 +3,11 @@ import PageTitle from '../../components/PageTitle'
 import { Dropdown, Row, Tab, TabContainer } from 'react-bootstrap'
 import ListGridView from '../../components/ListGridView'
 import { Link } from 'react-router-dom'
-import { theadPlanData } from '../../data/TheadData'
+import { theadJournalData } from '../../data/TheadData'
 
 
-function AllPlan() {
-    const [plans, setPlans] = useState([]);
+function AllJournal() {
+    const [journals, setJournals] = useState([]);
     const [sort, setSortData] = useState(10);
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(0);
@@ -33,17 +33,17 @@ function AllPlan() {
     chargeData(activePage.current * sort, (activePage.current + 1) * sort)
     }
     function DataSearch(e){  
-        const updatesData =  plans.filter(item =>{            
-            let selectdata = `${item.num} ${item.classe} ${item.unite} ${item.module}  ${item.creationDate}${item.updateDate} ${item.status}`.toLowerCase();                          
+        const updatesData =  journals.filter(item =>{            
+            let selectdata = `${item.num} ${item.classe} ${item.module}  ${item.journee} ${item.creationDate}${item.updateDate} ${item.status}`.toLowerCase();                          
             return  selectdata.includes(e.target.value.toLowerCase())
         });        
-        setPlans([...updatesData]);
+        setJournals([...updatesData]);
         setActivePage(0);        
     }
   
   return (
     <div>
-        <PageTitle activeMenu={"Toutes les planifications"} motherMenu={"Plan"}/>
+        <PageTitle activeMenu={"Toutes les journées"} motherMenu={"Journal"}/>
         <Row>
           <TabContainer defaultActiveKey={"List"}>
             <ListGridView/>
@@ -52,8 +52,8 @@ function AllPlan() {
                 <Tab.Pane eventKey="List" className="col-lg-12">
                   <div className='card'>
                     <div className="card-header">
-                      <h4 className="card-title">Toutes les planifications </h4>
-                      <Link to={"/AddPlan"} className="btn btn-primary">+ Ajouter Un Nouveau</Link>
+                      <h4 className="card-title">Toutes les journées </h4>
+                      <Link to={"/AddJournal"} className="btn btn-primary">+ Ajouter Un Nouveau</Link>
                     </div>
                     <div className='card-body'>
                       <div  className='dataTables_wrapper no-footer'>
@@ -89,7 +89,7 @@ function AllPlan() {
                           <table  className='className="display dataTable no-footer w-100'>
                               <thead>
                                 <tr>                                                
-                                  {theadPlanData.map((item, ind)=>(
+                                  {theadJournalData.map((item, ind)=>(
                                     <th key={ind}
                                     >{item.heading}
                                     </th>
@@ -97,18 +97,18 @@ function AllPlan() {
                                 </tr>
                               </thead>
                               <tbody>
-                                {plans.map((data, ind)=>(
+                                {journals.map((data, ind)=>(
                                   <tr key={ind}>
                                     <td>{data.num}</td>                                                    
                                     <td>{data.classe}</td>                                                    
-                                    <td>{data.unite}</td>                                                    
-                                    <td>{data.module}</td>
+                                    <td>{data.module}</td>                                                    
+                                    <td>{data.journee}</td>
                                     <td>{data.creationDate}</td>                                                                                                                                                  
                                     <td>{data.updateDate}</td>
                                     <td>{data.status}</td>
                                     <td>
-                                      <Link to={"/UpdatePlan"} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
-                                      <Link to={"/DeletePlan"} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
+                                      <Link to={"/UpdateJournal"} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
+                                      <Link to={"/DeleteJournal"} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
                                     </td>
                                   </tr>
                                 ))}
@@ -169,7 +169,7 @@ function AllPlan() {
                 </Tab.Pane>
                 <Tab.Pane eventKey="Grid" className="col-lg-12">
                 <div className="row">
-                  {plans.map((Plan, index) => (
+                  {journals.map((Journal, index) => (
                     <div className="col-lg-4 col-md-6 col-sm-6 col-12" key={index}>
                       <div className="card card-profile">
                         <div className="card-header justify-content-end pb-0 border-0">
@@ -179,8 +179,8 @@ function AllPlan() {
                             </Dropdown.Toggle>
                             <Dropdown.Menu align="end" className="dropdown-menu dropdown-menu-right border py-0">
                               <div className="py-2">
-                                <Link to={"/UpdatePlan"} className="dropdown-item">Modifier</Link>
-                                <Link to={"/DeletePlan"} className="dropdown-item text-danger">Supprimer</Link>
+                                <Link to={"/UpdateJournal"} className="dropdown-item">Modifier</Link>
+                                <Link to={"/DeleteJournal"} className="dropdown-item text-danger">Supprimer</Link>
                               </div>
                             </Dropdown.Menu>
                           </Dropdown>
@@ -188,13 +188,13 @@ function AllPlan() {
                         <div className="card-body pt-2">
                           <div className="text-center">
                             <ul className="list-group mb-3 list-group-flush">
-                              {Object.keys(Plan).map((key, ind) => (
+                              {Object.keys(Journal).map((key, ind) => (
                                 <li className="list-group-item px-0 d-flex justify-content-between" key={ind}>
-                                 <strong> {key}: </strong>{Plan[key]}
+                                 <strong> {key}: </strong>{Journal[key]}
                                 </li>
                               ))}
                             </ul>
-                            <Link to={"/UpdatePlan"} className="btn btn-outline-primary btn-rounded mt-3 px-4">Afficher</Link>
+                            <Link to={"/UpdateJournal"} className="btn btn-outline-primary btn-rounded mt-3 px-4">Afficher</Link>
                           </div>
                         </div>
                       </div>
@@ -209,4 +209,4 @@ function AllPlan() {
     </div>
   );
 }
-export default AllPlan
+export default AllJournal

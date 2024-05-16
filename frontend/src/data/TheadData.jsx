@@ -68,6 +68,164 @@ const theadEventData = [
     {heading: 'Détails', sortingVale:"details"},
     {heading: 'Action', sortingVale:"action"}
 ];
+
+const theadJournalData = [
+  { heading: 'Num', value: '' },
+  { heading: 'Classe',  value: '' },
+  { heading: 'Module', value: '' },
+  { heading: 'Jounrée',value: '' },
+  { heading: 'Date de création', value: '' },
+  { heading: 'Date de modification', value: '' },
+  { heading: 'Status', value: '' },
+  { heading: 'Action', value: '' },
+];
+const theadPlanData = [
+  { heading: 'Num', value: '' },
+  { heading: 'Classe',  value: '' },
+  { heading: 'Unité', value: '' },
+  { heading: 'Module',value: '' },
+  { heading: 'Date de création', value: '' },
+  { heading: 'Date de modification', value: '' },
+  { heading: 'Status', value: '' },
+  { heading: 'Action', value: '' },
+];
+const theadResultsData =[
+  { heading: 'Num', value:''},
+  { heading: 'Classe', value:''},
+  { heading: 'Groupe', value:''},
+  { heading: 'Évaluation', value:''},
+  { heading: 'Date de création', value:''},
+  { heading: 'Date de modification', value:''},
+  {heading: 'status', value:''},
+  {heading: 'Action', value: ''},
+
+]
+
+const RecitationCritere =[
+    {
+        title: "C1",
+        text:
+          "C1: Mémorisation",
+      },
+      {
+        title: "C2",
+        text:
+          "C2: Compréhension",
+      },
+      {
+        title: "C3",
+        text:
+          "C3: Interprétation",
+      },
+      {
+        title: "C4",
+        text:
+          "C4: Diction expressive",
+      },
+];
+const OralCritere =[
+  {
+      title: "C1",
+      text:
+        "C1: Adéquation avec la situation",
+    },
+    {
+      title: "C2",
+      text:
+        "C2: Correction phonétique",
+    },
+    {
+      title: "C3",
+      text:
+        "C3: Correction linguistique",
+    },
+    {
+      title: "C4",
+      text:
+        "C4: Cohérence de l’énoncé",
+    },
+    {
+      title: "C5",
+      text:
+        "C5: Richesse du vocabulaire",
+    },
+  {
+    title: "C6",
+    text:
+      "C6: Fluidité de l’expression",
+  },
+];
+const LectureCritere =[
+  {
+      title: "C1",
+      text:
+        "C1: Qualité de la lecture vocale",
+
+    },
+    {
+      title: "C2",
+      text:
+        "C2: Compréhension globale",
+    },
+    {
+      title: "C3",
+      text:
+        "C3: Compréhension du vocabulaire",
+    },
+    {
+      title: "C4",
+      text:
+        "C4: Justification d’une réponse",
+    },
+    {
+      title: "C5",
+      text:
+        "C5: Fluidité de la lecture",
+    },
+  {
+    title: "C6",
+    text:
+      "C6: Dépassement du texte",
+  },
+];
+
+const EcritCritere =[
+  {
+      title: "C1",
+      text:
+        "C1: Adéquation avec la situation",
+    },
+    {
+      title: "C2",
+      text:
+        "C2: Lisibilité de l’écriture ",
+    },
+    {
+      title: "C3",
+      text:
+        "C3: Correction linguistique",
+    },
+    {
+      title: "C4",
+      text:
+        "C4: Correction orthographique",
+    },
+    {
+      title: "C5",
+      text:
+        "C5: Cohérence de l’énoncé",
+    },
+    {
+      title: "C6",
+      text:
+        "C6: Richesse du vocabulaire",
+    },
+  {
+    title: "C7",
+    text:
+      "C7: Présentation matérielle",
+  },
+];
 export {
     theadTeacherData,
     theadHeadmasterData,
@@ -76,4 +234,11 @@ export {
     theadSchoolData,
     theadStudentData,
     theadEventData,
+    OralCritere,
+    RecitationCritere,
+    LectureCritere,
+    EcritCritere,
+    theadJournalData,
+    theadPlanData,
+    theadResultsData,
 };

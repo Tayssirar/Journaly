@@ -1,17 +1,24 @@
-import React,{useState, useEffect} from 'react'
+import React,{ useState} from 'react'
 import PageTitle from '../../components/PageTitle'
 import Select from 'react-select';
-import { Nav, Pagination} from "react-bootstrap";
 import {ClasseOption, education_a_Option} from '../../data/OptionData'
 import PlanSection from '../../components/PlanSection';
-import { Link } from 'react-router-dom';
 import JournePagination from '../../components/JournePagination';
+import PlanPreview from './PlanPreview';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css'; 
+
 const AddPlan = () => {
+
     const [classe, setClasse]= useState('');
     const [theme, setTheme] = useState('');
     const [subTheme, setSubTheme] = useState('');
     const [education_a, setEducation_a] = useState('');
     const [activePage, setActivePage] = useState(1);
+
+
+    
+    
 
     // Simulated API call when classe changes
     //useEffect(() => {
@@ -46,6 +53,9 @@ const AddPlan = () => {
   const handlePageChange = (pageNumber) => {
     setActivePage(pageNumber);
   };
+
+
+
   return (
 <>
       <PageTitle activeMenu={'Ajouter une Planification'} motherMenu={'Planification'} />
@@ -109,17 +119,25 @@ const AddPlan = () => {
                     </div>
                     <hr />
                       <JournePagination activePage={activePage} handlePageChange={handlePageChange} />
-                    <PlanSection/>
+                      <PerfectScrollbar >
+                      <PlanSection />
+                    </PerfectScrollbar>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-        </div>
-        <div className='document-preview'>
-    c
+
         </div>
         
+      <div className="document-preview" >
+          <PlanPreview  
+            classe={classe}
+            theme={theme}
+            subTheme={subTheme}
+            education_a={education_a}
+          />
+        </div>
       </div>
     </>
   );

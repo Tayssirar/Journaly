@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import PageTitle from '../../components/PageTitle';
 import Select from 'react-select';
 import { Card, CardBody, CardHeader, Form } from "react-bootstrap";
 import { ClasseOption, education_a_Option } from '../../data/OptionData';
-import { Scrollbars } from 'react-custom-scrollbars';
 import Sections from '../../components/Sections';
 import JournalPreview from '../../components/JournalPreview';
 
@@ -19,7 +18,7 @@ const AddJournal = () => {
       id: 'warmup',
       title: 'Mise en train',
       content: {
-        Dure:'',
+        Duré:'',
         contenu: '',
         Les_objectifs_spécifiques: '',
         Les_objectifs_de_la_séance:'',
@@ -30,7 +29,7 @@ const AddJournal = () => {
       id: 'oral',
       title: 'Communication orale',
       content: {
-        Dure:'',
+        Duré:'',
         La_situation: '',
         Les_objectifs_spécifiques: '',
         Les_objectifs_de_la_séance:'',
@@ -181,19 +180,18 @@ const AddJournal = () => {
               </CardHeader>
               <CardBody>
                 <Form >
-                    <Scrollbars style={{ height: 600 }}>
                     <Sections
                       sections={sections} 
                       setSections={setSections} 
                       updatePreview={updatePreview}
                     />
-                    </Scrollbars>
                 </Form>
               </CardBody>
             </Card>
         </div>
-        <div className='journal-preview'>
-          <JournalPreview previewData={previewData} 
+        <div className='document-preview'>
+          <JournalPreview 
+                      previewData={previewData} 
                         classe={classe}
                         theme={theme}
                         subTheme={subTheme}

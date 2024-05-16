@@ -5,7 +5,7 @@ import EventCalendar from './EventCalendar'
 function Calendar() {
   return (
     <div >
-    <PageTitle activeMenu="Calendar" motherMenu="App" />
+    <PageTitle activeMenu="Calendrier générale" motherMenu="Calendrier" />
 
     <EventCalendar />
     </div>

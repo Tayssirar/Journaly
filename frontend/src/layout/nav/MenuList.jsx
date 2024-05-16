@@ -27,14 +27,6 @@ export const MenuList = {
           title: 'Ajouter un évènement',
           to: 'AddEvent',
       },
-      {
-          title: 'Modifier un évènement',
-          to: 'UpdateEvent',
-      },
-      {
-        title: "Voir un évènement",
-        to: 'Event',
-    }, 
   ]
   },
   {
@@ -50,63 +42,38 @@ export const MenuList = {
         title: "Ajouter une École",
         to: "AddSchool",
       },
-
-      {
-        title: "Modifier une École",
-        to: "UpdateSchool",
-      },      
-      {
-        title: "Voir le profil d'une école",
-        to: "SchoolProfile",
-      },
     ],
   },
-      {
-        title: 'Inspecteur',	
-        classsChange: 'mm-collapse',		
-        iconStyle: <i className="las la-user-friends" />,
-        content: [
-            {
-                title: 'Voir les Inspecteurs',
-                to: 'AllInspectors',					
-            },
-            {
-              title: 'Ajouter un Inspecteur',
-              to: 'AddInspector',
+  {
+    title: 'Inspecteur',	
+    classsChange: 'mm-collapse',		
+    iconStyle: <i className="las la-user-friends" />,
+    content: [
+        {
+            title: 'Voir les Inspecteurs',
+            to: 'AllInspectors',					
+        },
+        {
+          title: 'Ajouter un Inspecteur',
+          to: 'AddInspector',
+        },
+    ]
+  },
+    {
+      title: 'Assistant',	
+      classsChange: 'mm-collapse',		
+      iconStyle: <i className="las la-user-friends" />,
+      content: [
+          {
+              title: 'Voir les Assistants',
+              to: 'AllAssistants',					
           },
           {
-              title: 'Modifier un Inspecteur',
-              to: 'UpdateInspector',
-          },
-          {
-            title: "Voir le profil d'un Inspecteur",
-            to: 'InspectorProfile',
-        }, 
-      ]
-    },
-      {
-        title: 'Assistant',	
-        classsChange: 'mm-collapse',		
-        iconStyle: <i className="las la-user-friends" />,
-        content: [
-            {
-                title: 'Voir les Assistants',
-                to: 'AllAssistants',					
-            },
-            {
-              title: 'Ajouter un assistant',
-              to: 'AddAssistant',
-          },
-          {
-              title: 'Modifier un assistant',
-              to: 'UpdateAssistant',
-          },
-          {
-            title: "Voir le profil d'un assistant",
-            to: 'AssistantProfile',
-        }, 
-      ]
-    },
+            title: 'Ajouter un assistant',
+            to: 'AddAssistant',
+        },
+    ]
+  },
     {
       title: 'Directeur',	
       classsChange: 'mm-collapse',		
@@ -120,14 +87,6 @@ export const MenuList = {
             title: 'Ajouter un directeur',
             to: 'AddHeadmaster',
         },
-        {
-            title: 'Modifier un directeur',
-            to: 'UpdateHeadmaster',
-        },
-        {
-          title: "Voir le profil d'un directeur",
-          to: 'HeadmasterProfile',
-      }, 
     ]
   },
       {
@@ -140,16 +99,8 @@ export const MenuList = {
             to: "AllTeachers",
           },
           {
-            title: "Modifier un enseignant",
-            to: "UpdateTeacher",
-          },
-          {
             title: "Ajouter un enseignant",
             to: "AddTeacher",
-          },
-          {
-            title: "Voir le profil d'un enseignant",
-            to: "TeacherProfile",
           },
         ],
       },
@@ -166,17 +117,25 @@ export const MenuList = {
             title: "Modifier un élève",
             to: "UpdateStudent",
           },
+        ],
+      },
+      {
+        title: "Programmes officiels",
+        classsChange: "mm-collapse",
+        iconStyle: <i class="las la-book-reader"></i>,
+        content: [
           {
-            title: "Ajouter un élève",
-            to: "AddStudent",
+            title: "Voir les programmes",
+            to: "AllProgram",
           },
           {
-            title: "Voir le profil d'un élève",
-            to: "StudentProfile",
+            title: "Ajouter un programme",
+            to: "AddProgram",
           },
         ],
       }
     ],
+
     headmaster:[
       {
         title: "Accueil",
@@ -220,14 +179,6 @@ export const MenuList = {
           title: 'Ajouter un évènement',
           to: 'AddEvent',
       },
-      {
-          title: 'Modifier un évènement',
-          to: 'UpdateEvent',
-      },
-      {
-        title: "Voir un évènement",
-        to: 'Event',
-    }, 
   ]
   },
   {
@@ -266,16 +217,8 @@ export const MenuList = {
             to: "AllTeachers",
           },
           {
-            title: "Modifier un enseignant",
-            to: "UpdateTeacher",
-          },
-          {
             title: "Ajouter un enseignant",
             to: "AddTeacher",
-          },
-          {
-            title: "Voir le profil d'un enseignant",
-            to: "TeacherProfile",
           },
         ],
       },
@@ -291,14 +234,6 @@ export const MenuList = {
           {
             title: "Modifier un élève",
             to: "UpdateStudent",
-          },
-          {
-            title: "Ajouter un élève",
-            to: "AddStudent",
-          },
-          {
-            title: "Voir le profil d'un élève",
-            to: "StudentProfile",
           },
         ],
       }
@@ -335,8 +270,8 @@ export const MenuList = {
       },
         //Management
         {
-            title: "Gestion d'événements",	        
-            to:"eventManagement",
+            title: "Voir les événements",	        
+            to:"AllEvents",
             iconStyle: <i className="la la-calendar-plus-o" />,        
         },
       {
@@ -375,11 +310,6 @@ export const MenuList = {
                 title: 'Ajouter une planification',
                 to: 'AddPlan',
             },
-            {
-                title: 'Modifier une planification',
-                to: 'UpdatePlan',
-            },
-          
         ],
     },
       //Journal   
@@ -395,11 +325,7 @@ export const MenuList = {
             {
                 title: 'Ajouter un Journal',
                 to: 'AddJournal',
-            },
-            {
-                title: 'Modifier un Journal',
-                to: 'UpdateJournal',
-            },            
+            },          
         ],
     },
       //Exam   
@@ -415,13 +341,25 @@ export const MenuList = {
             {
                 title: 'Ajouter un examen',
                 to: 'AddExam',
-            },
-            {
-                title: 'Modifier un examen',
-                to: 'UpdateExam',
-            },            
+            },           
         ],
     },
+    //Note   
+    {
+      title: 'Notes',	
+      classsChange: 'mm-collapse',		
+      iconStyle: <i class="las la-graduation-cap"/>,
+      content: [
+          {
+              title: 'Tous les notes',
+              to: 'AllNotes',					
+          },
+          {
+              title: 'Attribuer des notes',
+              to: 'AddNote',
+          },           
+      ],
+  },
     //Rapport   
     {
       title: 'Rapport',	
@@ -463,7 +401,6 @@ export const MenuList = {
         title: 'Calendrier',	
         classsChange: 'mm-collapse',
         iconStyle: <i className="la la-calendar" />,
-Cto: 'a'
 
       },
         //Management
@@ -479,14 +416,6 @@ Cto: 'a'
             title: 'Ajouter un évènement',
             to: 'AddEvent',
         },
-        {
-            title: 'Modifier un évènement',
-            to: 'UpdateEvent',
-        },
-        {
-          title: "Voir un évènement",
-          to: 'Event',
-      }, 
       ]
       },
       {
@@ -514,14 +443,6 @@ Cto: 'a'
               title: 'Ajouter un assistant',
               to: 'AddAssistant',
           },
-          {
-              title: 'Modifier un assistant',
-              to: 'UpdateAssistant',
-          },
-          {
-            title: "Voir le profil d'un assistant",
-            to: 'AssistantProfile',
-        }, 
       ]
     },
       {
@@ -548,15 +469,7 @@ Cto: 'a'
             {
               title: 'Ajouter un Rapport',
               to: 'AddRapport',
-          },
-          {
-              title: 'Modifier un Rapport',
-              to: 'UpdateRapport',
-          },
-          {
-            title: "Voir un Rapport",
-            to: 'Rapport',
-        },   
+          }, 
         ]
       }
     ],
@@ -587,7 +500,7 @@ Cto: 'a'
         title: 'Calendrier',	
         classsChange: 'mm-collapse',
         iconStyle: <i className="la la-calendar" />,
-Cto: 'a'
+        to: 'Calendar'
 
       },
         //Management
@@ -603,14 +516,6 @@ Cto: 'a'
               title: 'Ajouter un évènement',
               to: 'AddEvent',
           },
-          {
-              title: 'Modifier un évènement',
-              to: 'UpdateEvent',
-          },
-          {
-            title: "Voir le profil d'un évènement",
-            to: 'Event',
-        }, 
       ]
       },
       {
@@ -650,14 +555,6 @@ Cto: 'a'
               title: 'Ajouter un Rapport',
               to: 'AddRapport',
           },
-          {
-              title: 'Modifier un Rapport',
-              to: 'UpdateRapport',
-          },
-          {
-            title: 'Voir un Rapport',
-            to: 'Rapport',
-        },   
         ]
       }
     ],
