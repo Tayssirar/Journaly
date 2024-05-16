@@ -67,6 +67,12 @@ import Register from '../pages/authentication/Registration';
 //Note
 import AllResults from '../pages/note/AllResults';
 import AddNote from '../pages/note/AddNote';
+//Exams
+import AllExams from '../pages/exams/AllExams';
+import AddExam from '../pages/exams/AddExam';
+//program
+import AllProgram from '../pages/program/AllProgram';
+import AddProgram from '../pages/program/AddProgram';
 
 
 
@@ -123,7 +129,13 @@ const RoutesMarkup = () => {
     {url:"/Calendar", component: Calendar},
     //Note
     {url: "/AllNotes", component: AllResults},
-    {url:"/AddNote", component: AddNote}
+    {url:"/AddNote", component: AddNote},
+    //Exams
+    {url: "/AllExams", component: AllExams},
+    {url:"/AddExam", component: AddExam},
+    //Program
+    {url: "/AllProgram", component: AllProgram},
+    {url:"/AddProgram", component: AddProgram},
 
   ];
 

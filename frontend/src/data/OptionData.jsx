@@ -8,7 +8,7 @@ const ClasseOption = [
     { value: '2', label: '3ème année' },
     { value: '3', label: '4ème année' },
     { value: '4', label: '5ème année' },
-    { value: '5', label: '5ème année' },
+    { value: '5', label: '6ème année' },
 
 ]
 

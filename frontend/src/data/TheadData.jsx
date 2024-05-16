@@ -89,7 +89,25 @@ const theadPlanData = [
   { heading: 'Status', value: '' },
   { heading: 'Action', value: '' },
 ];
+const theadProgramData = [
+  { heading: 'Num', value: '' },
+  { heading: 'Classe',  value: '' },
+  { heading: 'Unité', value: '' },
+  { heading: 'Module',value: '' },
+  { heading: 'Date ', value: '' },
+  { heading: 'Action', value: '' },
+];
 const theadResultsData =[
+  { heading: 'Num', value:''},
+  { heading: 'Classe', value:''},
+  { heading: 'Groupe', value:''},
+  { heading: 'Évaluation', value:''},
+  { heading: 'Date de création', value:''},
+  { heading: 'Date de modification', value:''},
+  {heading: 'status', value:''},
+  {heading: 'Action', value: ''},
+]
+const theadExamData =[
   { heading: 'Num', value:''},
   { heading: 'Classe', value:''},
   { heading: 'Groupe', value:''},
@@ -241,4 +259,6 @@ export {
     theadJournalData,
     theadPlanData,
     theadResultsData,
+    theadProgramData,
+    theadExamData,
 };
