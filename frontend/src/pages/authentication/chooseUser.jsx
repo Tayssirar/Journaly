@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Row, Card, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { selectRoleAction } from '../../store/actions/AuthActions';
+import logoFull from "../../assets/images/logo-full.png";
+
 
 function ChooseUser(props) {
     const handleRoleSelect = (role) => {
@@ -12,6 +14,11 @@ function ChooseUser(props) {
     return (
         <div className="fix-wrapper">
             <div className="container">
+            <div className="text-center mb-4">
+                  <Link to={"/"}>
+                    <img src={logoFull} alt='logo journaly'/>
+                  </Link>
+                </div>
                 <Row>
                     <Col xl="6">
                         <Card>

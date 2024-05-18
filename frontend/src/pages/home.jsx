@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Button } from "react-bootstrap";
-import home from "../assets/images/svg/home.svg";
+import home from "../assets/images/home.gif";
 import NavHome from '../layout/nav/NavHome';
 
 
@@ -8,11 +8,11 @@ function Home() {
   return (
     <div className="fix-wrapper">
        <NavHome/>
-      <div className="container">
+      <div className="">
           <Row>
 
             <Col xl={6}>
-              <div className="grid-col mt-5 mb-4"><img src={home} alt="" style={{ width: '100%' }} />
+              <div className="grid-col mt-5"><img src={home} alt="" style={{ width: '110%' }} />
               </div>
             </Col>
             <Col xl={6}>

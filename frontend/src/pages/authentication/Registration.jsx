@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import { Link, useNavigate } from 'react-router-dom';
 import {     loadingToggleAction,
   signupAction, } from '../../store/actions/AuthActions';
+import logoFull from "../../assets/images/logo-full.png";
+
 
 
 function Register (props) {
@@ -54,8 +56,11 @@ function Register (props) {
            
               <div className="card mb-0 h-auto">
                 <div className="card-body">
-                  <div className="text-center mb-2">
-                  </div>
+                <div className="text-center mb-4">
+                  <Link to={"/"}>
+                    <img src={logoFull} alt='logo journaly'/>
+                  </Link>
+                </div>
                   <h4 className="text-center mb-4 ">Inscrivez-vous à votre compte</h4>
                     {props.errorMessage && (
                       <div className='text-danger'>

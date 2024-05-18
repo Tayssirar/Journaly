@@ -1,27 +1,27 @@
 import React from 'react'
 import { Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import logoFull from "../../assets/images/logo-full.png";
+
 
 
 const NavHome = () => {
 	
     return (
-        <div className="header">
-        <div className="header-content">
-          <nav className="navbar navbar-expand">
-            <div className="collapse navbar-collapse justify-content-between">
-            <div className="header-left">                
-            </div>
+        <div className="header  justify-content-between">
+          <nav className="navbar">
+            <div className='navbar-nav header-left'>
+                  <Link to={"/"}>
+                    <img src={logoFull} alt='logo journaly'/>
+                  </Link></div>
             <ul className="navbar-nav header-right ">	
                 <li>
                     <Button as="a" variant="primary" href="/chooseUser" className="mt-3">
-                                        Se connecter
+                      Se connecter
                     </Button>
                 </li>
                 </ul>
-
-            </div>
           </nav>
-        </div>
       </div>
      
   )

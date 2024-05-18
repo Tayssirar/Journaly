@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { loginAction } from '../../store/actions/AuthActions';
 import { Link, useNavigate } from 'react-router-dom';
+import logoFull from '../../assets/images/logo-full.png'
 
 function Login(props) {
   const [email, setEmail] = useState('demo@example.com');
@@ -42,7 +43,11 @@ function Login(props) {
           <div className="col-lg-5 col-md-6">
             <div className="card mb-0 h-auto">
               <div className="card-body">
-
+              <div className="text-center mb-4">
+                  <Link to={"/"}>
+                    <img src={logoFull} alt='logo journaly'/>
+                  </Link>
+                </div>
                 <h4 className="text-center mb-4">Connectez-vous à votre compte</h4>
 
                 {props.errorMessage && (
