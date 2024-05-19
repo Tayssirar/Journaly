@@ -8,7 +8,7 @@ function NavDash({ userRole }) {
   return (
     <Fragment>
       <NavHeader userRole={userRole} />
-      <Header/>
+      <Header userRole={userRole}/>
       <SideNavBar userRole={userRole}/>
     </Fragment>  )
 }

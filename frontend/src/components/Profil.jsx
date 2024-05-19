@@ -4,7 +4,7 @@ import axios from 'axios';
 import { theadSchoolData, theadAssistantData, theadHeadmasterData, theadInspectorData, theadStudentData, theadTeacherData } from '../data/TheadData';
 
 function Profil({ profileType, ProfileData }) {
-    const [image, setImage] = useState('/logo192.png');
+    const [image, setImage] = useState('');
     const [theadData, setTheadData] = useState([]);
 
     useEffect(() => {

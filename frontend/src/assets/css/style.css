@@ -10337,7 +10337,15 @@ div, span, ol, ul {
       color: var(--text-gray); }
     .footer .copyright a {
       color: var(--primary); }
-
+.home-header {
+    display: d-flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+}
 .nav-header {
   height: var(--dz-header-height);
   width: var(--dz-sidebar-width);

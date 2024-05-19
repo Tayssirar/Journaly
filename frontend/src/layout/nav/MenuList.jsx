@@ -401,6 +401,7 @@ export const MenuList = {
         title: 'Calendrier',	
         classsChange: 'mm-collapse',
         iconStyle: <i className="la la-calendar" />,
+        to: 'Calendar'
 
       },
         //Management

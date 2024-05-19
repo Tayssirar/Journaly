@@ -8,7 +8,7 @@ import logoFull from "../../assets/images/logo-full.png";
 const NavHome = () => {
 	
     return (
-        <div className="header  justify-content-between">
+        <div className="home-header  justify-content-between">
           <nav className="navbar">
             <div className='navbar-nav header-left'>
                   <Link to={"/"}>

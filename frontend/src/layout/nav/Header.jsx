@@ -1,17 +1,42 @@
-import React,{ useContext} from "react";
+import React,{ useContext, useEffect, useState} from "react";
 
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-/// Image
-import profile from "../../assets/images/profile/education/pic1.jpg";
-// import avatar from "../../../assets/images/avatar/1.jpg";
+import userImg from '../../assets/images/user.jpg'
 
 import { ThemeContext } from "../../assets/context/ThemeContext";
 import  Logout  from "../nav/Logout";
 
 
-const Header = ({ onNote }) => {
+const Header = ({ onNote, userRole }) => {
+  const [profileImg, setProfileImg]= useState('')
+  const[profileLink, setProfileLink]=useState ('')
+
+  useEffect(() => {
+    switch (userRole) {
+        case 'teacher':
+            setProfileImg();
+            setProfileLink('/teacherProfile');
+            break;
+        case 'assistant':
+            setProfileImg();
+            setProfileLink('/assistantProfile');
+            break;
+        case 'headmaster':
+            setProfileImg();
+            setProfileLink('/headmasterProfile');
+            break;
+        case 'inspector':
+            setProfileImg();
+            setProfileLink('/inspectorProfile');
+            break;
+        default:
+            setProfileImg(userImg);
+            setProfileLink('/Profile');
+    }
+}, [userRole]);
+
+
   const {background, changeBackground } = useContext(ThemeContext);
 	const handleThemeMode = () => {
 		if(background.value === 'dark'){
@@ -51,10 +76,10 @@ const Header = ({ onNote }) => {
                   </li>			
                     <Dropdown as="li" className="nav-item header-profile">              
                   <Dropdown.Toggle to={"#"} className="nav-link i-false" as="div">
-                    <img src={profile} width="20" alt=""/>
+                    <img src={profileImg} width="20" alt=""/>
                   </Dropdown.Toggle>
                   <Dropdown.Menu align="end" className="mt-3 dropdown-menu dropdown-menu-right ">
-                      <Link to={"/app-profile"} className="dropdown-item ai-icon icon-bell-effect">
+                      <Link to={profileLink} className="dropdown-item ai-icon icon-bell-effect">
                           <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                           <span className="ms-2">Profil </span>
                       </Link>

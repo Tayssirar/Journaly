@@ -118,6 +118,15 @@ const theadExamData =[
   {heading: 'Action', value: ''},
 
 ]
+const theadRapportData =[
+  { heading: 'Num', value:''},
+  { heading: 'Enseignant', value:''},
+  { heading: 'École', value:''},
+  { heading: 'Date de création', value:''},
+  { heading: 'Date de modification', value:''},
+  {heading: 'status', value:''},
+  {heading: 'Action', value: ''},
+]
 
 const RecitationCritere =[
     {
@@ -261,4 +270,5 @@ export {
     theadResultsData,
     theadProgramData,
     theadExamData,
+    theadRapportData,
 };

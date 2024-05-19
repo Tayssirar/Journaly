@@ -6,7 +6,7 @@ function TeacherProfile() {
   const profileType = 'enseignant'; 
   return (
     <div>
-      <PageTitle activeMenu={"Profile de " + profileType} motherMenu={"Profile"} />
+      <PageTitle activeMenu={"Profil de " + profileType} motherMenu={"Profil"} />
       <Profil profileType={profileType} />
     </div>
   );

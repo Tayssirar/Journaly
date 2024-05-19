@@ -123,7 +123,7 @@ function InspectorForm({ mode, initialValues, onSubmit }) {
                 ))}
                 {/* Display selected options */}
                 <div className="form-label">
-                    Les Schoolx à enseignés: {checkedSchoolOptions.join(', ')}
+                    Les écoles à inspecter: {checkedSchoolOptions.join(', ')}
                 </div>
                 </div>
             </div>

@@ -23,6 +23,9 @@ import AllTeachers from '../pages/teacher/AllTeachers';
 import AddTeacher from '../pages/teacher/AddTeacher';
 import UpdateTeacher from '../pages/teacher/UpdateTeacher';
 import  TeacherProfile from '../pages/teacher/TeacherProfile';
+import  UpdateTeacherProfile from '../pages/teacher/UpdateTeacherProfile';
+import DeleteTeacher from '../pages/teacher/DeleteTeacher';
+
 //Student
 import AllStudents from '../pages/student/AllStudents';
 import AddStudent from '../pages/student/AddStudent';
@@ -33,16 +36,23 @@ import AllInspectors from '../pages/inspector/AllInspectors';
 import AddInspector from '../pages/inspector/AddInspector';
 import UpdateInspector from '../pages/inspector/UpdateInspector';
 import  InspectorProfile from '../pages/inspector/InspectorProfile';
+import UpdateInspectorProfile from '../pages/inspector/UpdateInspectorProfile';
+import DeleteInspector from '../pages/inspector/DeleteInspector';
+
 //Assistant
 import AllAssistants from '../pages/assistant/AllAssistants';
 import AddAssistant from '../pages/assistant/AddAssistant';
 import UpdateAssistant from '../pages/assistant/UpdateAssistant';
 import  AssistantProfile from '../pages/assistant/AssistantProfile';
+import UpdateAssistantProfile from '../pages/assistant/UpdateAssistantProfile';
+import DeleteAssistant from '../pages/assistant/DeleteAssistant';
 //Headmaster
 import AllHeadmasters from '../pages/headmaster/AllHeadmasters';
 import AddHeadmaster from '../pages/headmaster/AddHeadmaster';
 import UpdateHeadmaster from '../pages/headmaster/UpdateHeadmaster';
 import  HeadmasterProfile from '../pages/headmaster/HeadmasterProfile';
+import UpdateHeadmasterProfile from '../pages/headmaster/UpdateHeadmasterProfile';
+import DeleteHeadmaster from '../pages/headmaster/DeleteHeadmaster';
 //School
 import AllSchools from '../pages/school/AllSchools';
 import AddSchool from '../pages/school/AddSchool';
@@ -73,7 +83,11 @@ import AddExam from '../pages/exams/AddExam';
 //program
 import AllProgram from '../pages/program/AllProgram';
 import AddProgram from '../pages/program/AddProgram';
-
+//rapport
+import AllRapports from '../pages/rapport/AllRaports';
+import AddRapport from '../pages/rapport/AddRapport';
+import UpdateRapport from '../pages/rapport/UpdateRapport';
+import DeleteRapport from '../pages/rapport/DeleteRapport';
 
 
 const RoutesMarkup = () => {
@@ -89,53 +103,78 @@ const RoutesMarkup = () => {
     { url: "/AddTeacher", component: AddTeacher },
     { url: "/UpdateTeacher", component: UpdateTeacher },
     { url: "/TeacherProfile", component:  TeacherProfile },
+    { url: "/UpdateTeacherProfile", component: UpdateTeacherProfile },
+    {url:"/DeleteTeacher", component:DeleteTeacher },
     //Headmaster
     { url: "/AllHeadmasters", component: AllHeadmasters },
     { url: "/AddHeadmaster", component: AddHeadmaster },
     { url: "/UpdateHeadmaster", component: UpdateHeadmaster },
     { url: "/HeadmasterProfile", component:  HeadmasterProfile },
+    { url: "/UpdateHeadmasterProfile", component: UpdateHeadmasterProfile },
+    {url:"/DeleteHeadmaster", component:DeleteHeadmaster },
     //Inspector
     { url: "/AllInspectors", component: AllInspectors },
     { url: "/AddInspector", component: AddInspector },
     { url: "/UpdateInspector", component: UpdateInspector },
     { url: "/InspectorProfile", component:  InspectorProfile },
+    { url: "/UpdateInspectorProfile", component: UpdateInspectorProfile },
+    {url:"/DeleteInspector", component:DeleteInspector },
     //Student
     { url: "/AllStudents", component: AllStudents },
     { url: "/AddStudent", component: AddStudent },
     { url: "/UpdateStudent", component: UpdateStudent },
     { url: "/StudentProfile", component:  StudentProfile },
+    {url:"/Delete", component:DeleteRapport },
     //Assistant
     { url: "/AllAssistants", component: AllAssistants },
     { url: "/AddAssistant", component: AddAssistant },
     { url: "/UpdateAssistant", component: UpdateAssistant },
     { url: "/AssistantProfile", component:  AssistantProfile },
+    { url: "/UpdateAssistantProfile", component: UpdateAssistantProfile },
+    {url:"/DeleteAssistant", component:DeleteAssistant },
     //School
     { url: "/AllSchools", component: AllSchools },
     { url: "/AddSchool", component: AddSchool },
     { url: "/UpdateSchool", component: UpdateSchool },
     { url: "/SchoolProfile", component:  SchoolProfile },
+    {url:"/Delete", component:DeleteRapport },
     //Planification
     { url: "/AllPlan", component: AllPlan},
     {url: "/AddPlan", component: AddPlan},
+    {url:"/Delete", component:DeleteRapport },
+    {url:"/Update", component: UpdateRapport},
     //Journal
     {url: "/AddJournal", component: AddJournal},
     {url: "/AllJournal", component: AllJournal},
-
+    {url:"/Delete", component:DeleteRapport },
+    {url:"/Update", component: UpdateRapport},
     //Event
     {url: "/AllEvents", component: AllEvents},
     {url: "/AddEvent", component: AddEvent},
     {url: "/UpdateEvent", component: UpdateEvent},
+    {url:"/Delete", component:DeleteRapport },
     //Calendar
     {url:"/Calendar", component: Calendar},
     //Note
     {url: "/AllNotes", component: AllResults},
     {url:"/AddNote", component: AddNote},
+    {url:"/Delete", component:DeleteRapport },
+    {url:"/Update", component: UpdateRapport},
     //Exams
     {url: "/AllExams", component: AllExams},
     {url:"/AddExam", component: AddExam},
+    {url:"/Delete", component:DeleteRapport },
+    {url:"/Update", component: UpdateRapport},
     //Program
     {url: "/AllProgram", component: AllProgram},
     {url:"/AddProgram", component: AddProgram},
+    {url:"/Delete", component:DeleteRapport },
+    {url:"/Update", component: UpdateRapport},
+    //Rapport
+    {url: "/AllRapport", component: AllRapports},
+    {url:"/AddRapport", component: AddRapport},
+    {url:"/DeleteRapport", component:DeleteRapport },
+    {url:"/UpdateRapport", component: UpdateRapport},
 
   ];
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StepThree= () => {
+function UpdateRapport() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const StepThree= () => {
   )
 }
 
-export default StepThree
+export default UpdateRapport
