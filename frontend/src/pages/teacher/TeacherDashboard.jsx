@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardBody, CardHeader, Col, Row } from 'react-bootstrap';
-import { DefaultCard, DonutChart } from '../../components/TeacherCard';
+import { DefaultCard } from '../../components/TeacherCard';
 import GenreDonutChart from '../../components/TeacherDonutChart';
 import GroupePerformance from '../../components/GroupePerform';
 
@@ -33,8 +33,8 @@ function TeacherDashboard() {
       <Row>
         <DefaultCard />
         {classes.map((classe, index) => (
-          <>
-            <Col xl={"3"} xxl={"3"} sm={"6"} key={index}>
+          <React.Fragment key={index}>
+            <Col xl={3} xxl={3} sm={6}>
               <Card>
                 <CardHeader>
                   <h3 className="card-title"> {classe.className} - {classe.groupName}</h3>
@@ -47,18 +47,18 @@ function TeacherDashboard() {
             <Col xl={6} lg={6}>
               <Card>
                 <Card.Header>
-                  <h3 className="card-title">{classe.className}</h3>
+                  <h3 className="card-title">{classe.className} - {classe.groupName}</h3>
                 </Card.Header>
                 <Card.Body>
                   <GroupePerformance groupe={classe.groupName} />
                 </Card.Body>
               </Card>
             </Col>
-          </>
+          </React.Fragment>
         ))}
       </Row>
     </div>
   );
 }
 
-export default TeacherDashboard
+export default TeacherDashboard;

@@ -1,9 +1,11 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-const DonutChart = ({ boys, girls }) => {
-  const series = [girls, boys]; // Data series
-  const options = {
+const DonutChart = ({ boys, girls, maleTeachers, femaleTeachers }) => {
+  const studentSeries = [girls, boys];
+  const teacherSeries = [femaleTeachers, maleTeachers];
+  
+  const StudentOptions = {
     chart: {
       type: 'donut',
       height: 300,
@@ -45,11 +47,22 @@ const DonutChart = ({ boys, girls }) => {
     ],
   };
 
+  const teacherOptions = {
+    ...StudentOptions,
+    labels: ["Femmes", "Hommes"]
+  };
+
   return (
     <div id="chart">
       <ReactApexChart
-        options={options}
-        series={series}
+        options={StudentOptions}
+        series={studentSeries}
+        type="donut"
+        height={300}
+      />
+      <ReactApexChart
+        options={teacherOptions}
+        series={teacherSeries}
         type="donut"
         height={300}
       />

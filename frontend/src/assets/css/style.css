@@ -23198,3 +23198,29 @@ span#counter {
     [data-theme-version="dark"] .footer .copyright p {
       color: #fff; }
 
+      .bg-container-home img {
+        width: 100%;
+        height: 100vh;
+      }
+      
+      .content-container-home {
+        position: absolute;
+        top: 21%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      
+      .text-left-container {
+        position: absolute;
+        top: 46%;
+        left: 10%; /* Adjust this value as needed to position it properly */
+        transform: translate(0, -50%);
+        text-align: left;
+        width: 40%; /* Adjust width as needed */
+      }
+      
+      .text-left-container h1 {
+        margin-bottom: 1rem;
+      }
+      
