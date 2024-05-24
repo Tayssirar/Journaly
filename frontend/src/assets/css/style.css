@@ -894,21 +894,23 @@ progress {
 @media (min-width: 1440) {
   .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
     max-width: 1320px; } }
+    
     .doc-container {
       display: flex;
     }
     
     .text-area {
-      flex: 1; /* Take up 50% of the container width */
+      flex: 0 0 30%; /* Take up 30% of the container width */
       padding: 10px;
     }
     
     .document-preview {
-      flex: 1; /* Take up 50% of the container width */
-      padding: 10px;
+      flex: 0 0 70%; /* Take up 70% of the container width */
+      padding: 5px;
       overflow-y: auto; /* Add a vertical scrollbar */
       position: relative; /* Positioning context for the zoom icons */
     }
+    
     
     .zoom-icons {
       margin-bottom: 10px;
@@ -23205,7 +23207,7 @@ span#counter {
       
       .content-container-home {
         position: absolute;
-        top: 21%;
+        top: 16%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -23213,8 +23215,8 @@ span#counter {
       
       .text-left-container {
         position: absolute;
-        top: 46%;
-        left: 10%; /* Adjust this value as needed to position it properly */
+        top: 35%;
+        left: 8%; /* Adjust this value as needed to position it properly */
         transform: translate(0, -50%);
         text-align: left;
         width: 40%; /* Adjust width as needed */
@@ -23223,4 +23225,9 @@ span#counter {
       .text-left-container h1 {
         margin-bottom: 1rem;
       }
+      .card-custom {
+        max-height: 100px; /* Ajustez cette valeur selon vos besoins */
+        overflow-y: auto;
+      }
+      
       

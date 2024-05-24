@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardBody, CardHeader, Row } from 'react-bootstrap';
+import { Card, CardBody, CardHeader, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
 import { theadSchoolData, theadAssistantData, theadHeadmasterData, theadInspectorData, theadStudentData, theadTeacherData } from '../data/TheadData';
 
@@ -49,7 +49,7 @@ function Profil({ profileType, ProfileData }) {
 
     return (
         <div>
-            <div className="col-lg-12">
+            <Col>
                 <Card>
                     <div className="text-center p-3 overlay-box">
                         <div className="profile-photo">
@@ -59,9 +59,9 @@ function Profil({ profileType, ProfileData }) {
                         <p className="text-white mb-0">{profileType}</p>
                     </div>
                 </Card>
-            </div>
+            </Col>
             <Row>
-                <div className="col-lg-6">
+                <div >
                     <Card>
                         <CardHeader>
                             <h2 className="card-title">Les informations</h2>

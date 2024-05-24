@@ -1,72 +1,111 @@
-import React,{ useState} from 'react'
-import PageTitle from '../../components/PageTitle'
+import React, { useState, useEffect } from 'react';
+import PageTitle from '../../components/PageTitle';
 import Select from 'react-select';
-import {ClasseOption, education_a_Option} from '../../data/OptionData'
+import { ClasseOption, education_a_Option } from '../../data/OptionData';
 import PlanSection from '../../components/PlanSection';
 import JournePagination from '../../components/JournePagination';
 import PlanPreview from './PlanPreview';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import 'react-perfect-scrollbar/dist/css/styles.css'; 
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import { Card, CardBody, CardHeader, Form } from 'react-bootstrap';
+
+const staticData = {
+  common: {
+    theme: 'Theme',
+    subTheme: 'SubTheme',
+    education_a: 'EducationA',
+  },
+  journee: {
+    1: {
+      sections: [
+        {
+          id: 'warmup',
+          title: 'Mise en train',
+          content: {
+            contenu: 'Contenu 1',
+            Les_objectifs_spécifiques: 'Objectifs spécifiques 1',
+            La_compétence_de_vie: 'Compétence de vie 1',
+          },
+        },
+        {
+            id: 'oral',
+            title: 'orale',
+            content: {
+              contenu: 'Contenu 1',
+              Les_objectifs_spécifiques: 'Objectifs spécifiques 1',
+              La_compétence_de_vie: 'Compétence de vie 1',
+            },
+          },
+            
+        
+        // More sections as needed...
+      ],
+    },
+    2: {
+      sections: [
+        {
+          id: 'warmup',
+          title: 'Mise en train',
+          content: {
+            contenu: 'Contenu 2',
+            Les_objectifs_spécifiques: 'Objectifs spécifiques 2',
+            La_compétence_de_vie: 'Compétence de vie 2',
+          },
+        },
+        // More sections as needed...
+      ],
+    },
+    // Add more data for days 3 to 8...
+  },
+};
+
+const fetchPlanData = async () => {
+  // Simulated API call with static data
+  return new Promise((resolve) => setTimeout(() => resolve(staticData), 100));
+};
 
 const AddPlan = () => {
+  const [classe, setClasse] = useState('');
+  const [theme, setTheme] = useState(staticData.common.theme);
+  const [subTheme, setSubTheme] = useState(staticData.common.subTheme);
+  const [education_a, setEducation_a] = useState(staticData.common.education_a);  
+  const [activeJournee, setActiveJournee] = useState(1);
+  const [planData, setPlanData] = useState(staticData);
 
-    const [classe, setClasse]= useState('');
-    const [theme, setTheme] = useState('');
-    const [subTheme, setSubTheme] = useState('');
-    const [education_a, setEducation_a] = useState('');
-    const [activePage, setActivePage] = useState(1);
+  useEffect(() => {
+    fetchPlanData(activeJournee).then((data) => {
+      setPlanData(data || {}); // Ensure data is not undefined
+      setTheme(data?.common?.theme); // Update theme using data fetched from planData
+      setSubTheme(data?.common?.subTheme); // Update subTheme using data fetched from planData
+      setEducation_a(data?.common?.education_a); // Update education_a using data fetched from planData
+    });
+  }, [activeJournee]);
 
-
-    
-    
-
-    // Simulated API call when classe changes
-    //useEffect(() => {
-    //if (classe) {
-   //   fetchDataForClass(classe).then((data) => {
-        // Update state variables with fetched data
-    //    setTheme(data.theme);
-    //    setSubTheme(data.subTheme);
-    //    setEducation_a(data.education_a);
-        // You can also update other relevant state variables based on fetched data
-   //   });
- //   }
-//  }, [classe]);
-   // Only re-run the effect if classe changes
-
-
-    const handleClasseChange=(e) =>{
-        setClasse(e.target.value)
-    };
+  const handleClasseChange = (selectedOption) => {
+    setClasse(selectedOption.value);
+  };
   const handleThemeChange = (e) => {
     setTheme(e.target.value);
   };
-
   const handleSubThemeChange = (e) => {
     setSubTheme(e.target.value);
   };
-
-  const handleEducationAChange = (e) => {
-    setEducation_a(e.target.value);
+  const handleEducationAChange = (selectedOption) => {
+    setEducation_a(selectedOption.value);
   };
-
-  const handlePageChange = (pageNumber) => {
-    setActivePage(pageNumber);
+  const handleJourneeChange = (pageNumber) => {
+    setActiveJournee(pageNumber);
   };
-
-
 
   return (
-<>
+    <>
       <PageTitle activeMenu={'Ajouter une Planification'} motherMenu={'Planification'} />
       <div className='doc-container'>
         <div className='text-area'>
-          <div className='col-xl-12'>
-            <div className='card'>
-              <div className='card-body'>
-                <form className='needs-validation' noValidate=''>
+            <Card>
+              <CardHeader>
+                <Form className='needs-validation' noValidate=''>
                   <div className='row'>
-                    {/*classe*/}
                     <div className='col-md-6 mb-3'>
                       <label htmlFor='classe'>classe:</label>
                       <Select
@@ -78,7 +117,6 @@ const AddPlan = () => {
                       />
                       <div className='invalid-feedback'>Vous devez entrer la classe.</div>
                     </div>
-                    {/*theme*/}
                     <div className='col-md-6 mb-3'>
                       <label htmlFor='theme'>thème de l'unité</label>
                       <input
@@ -92,7 +130,6 @@ const AddPlan = () => {
                       />
                       <div className='invalid-feedback'>Vous devez enter le theme.</div>
                     </div>
-                    {/*soustheme*/}
                     <div className='col-md-6 mb-3'>
                       <label htmlFor='sous-theme'>sous-thème du module</label>
                       <input
@@ -106,7 +143,6 @@ const AddPlan = () => {
                       />
                       <div className='invalid-feedback'>Vous devez enter le sous-theme.</div>
                     </div>
-                    {/*education a*/}
                     <div className='col-md-6 mb-3'>
                       <label htmlFor='education_a'>éducation à</label>
                       <Select
@@ -117,25 +153,30 @@ const AddPlan = () => {
                         onChange={handleEducationAChange}
                       />
                     </div>
-                    <hr />
-                      <JournePagination activePage={activePage} handlePageChange={handlePageChange} />
-                      <PerfectScrollbar >
-                      <PlanSection />
-                    </PerfectScrollbar>
                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
+                </Form>
+              </CardHeader>
+              <CardBody>
+                <JournePagination activeJournee={activeJournee} handleJourneeChange={handleJourneeChange} />
+                    <PerfectScrollbar>
+                      {planData && Object.keys(planData).length > 0 && ( // Check if planData is not empty
+                        <PlanSection
+                          data={planData}
+                          onDataChange={(updatedData) => setPlanData(updatedData)}
+                          activeJournee={activeJournee}
+                        />
+                      )}
+                    </PerfectScrollbar>
+              </CardBody>
+            </Card>
         </div>
-        
-      <div className="document-preview" >
-          <PlanPreview  
+        <div className="document-preview">
+          <PlanPreview
             classe={classe}
             theme={theme}
             subTheme={subTheme}
             education_a={education_a}
+            planData={planData}
           />
         </div>
       </div>

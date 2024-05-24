@@ -51,7 +51,7 @@ function Sections({sections, setSections, updatePreview}) {
         className="widget-timeline dz-scroll style-1 height370 my-4 px-4"
     >
         {sections.map((section, index) => (
-          <div key={index} className='me-md-3' >
+          <div key={index}  >
             <div className="d-flex justify-content-between align-items-center mb-3">
               <h6 className="m-0">{section.title}</h6>
               <Button

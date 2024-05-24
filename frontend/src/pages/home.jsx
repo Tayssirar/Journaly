@@ -3,28 +3,12 @@ import { Row, Col, Button, Card, CardBody } from "react-bootstrap";
 import home from "../assets/images/home.gif";
 import skybg from "../assets/images/skybg1.jpg"
 import skybook from "../assets/images/skybook.jpg"
+import booksfooter from "../assets/images/booksfooter.jpg"
 import NavHome from '../layout/nav/NavHome';
+import { headmasterAction, inspectorAction, teacherAction } from '../data/HomeCard';
 
 
 function Home() {
-const headmasterAction = [
-{
-  icon:'',
-  description: 'ifkùlf',
-}
-];
-const inspectorAction = [
-  {
-    icon:'',
-    description: 'ifkùlf',
-  }
-  ];
-  const teacherAction = [
-    {
-      icon:'',
-      description: 'Créer le journal, la planification, les évaluations en simple clique.',
-    }
-    ];
 
   return (
     <div className="fix-wrapper">
@@ -48,41 +32,45 @@ const inspectorAction = [
             </div>
 
           </div>
-          <div className='row'>
+          <div className='row mx-1 mb-2'>
             <h1 className='text-black text-center mb-5'>Vous êtes un(e)</h1>
             <Col xl={4}>
-              <h4 className='text-primary text-center'>directeur(ice) !</h4>
-            <Card>
+              <h4 className='text-primary fs-20 text-center'>directeur(ice) !</h4>
             {headmasterAction.map((action, index) => (
-              <CardBody key={index}>
+            <Card key={index} className="card-custom">
+              <CardBody className='fs-15 text-center' >
                 {action.icon} {action.description}
               </CardBody>
-            ))}
             </Card>
+            ))}
             </Col>  
-            <Col xl={4}>
-              <h4 className='text-success text-center'>inspecteur(ice) ou assistant(e) !</h4>
-            <Card>
+            <Col xl={4} >
+              <h4 className='text-success fs-20 text-center'>inspecteur(ice) ou assistant(e) !</h4>
               {inspectorAction.map((action, index) => (
-                <CardBody key={index}>
+            <Card key={index} className="card-custom">
+                <CardBody className='fs-15 text-center' >
                   {action.icon} {action.description}
                 </CardBody>
-              ))}
             </Card>
+            ))}
             </Col>
             <Col xl={4}>
-              <h4 className='text-danger text-center'>enseignant(e) !</h4>
-            <Card>
+              <h4 className='text-danger fs-20 text-center'>enseignant(e) !</h4>
               {teacherAction.map((action, index) => (
-                <CardBody key={index}>
+            <Card key={index} className="card-custom">
+                <CardBody className='fs-15 text-center'>
                   {action.icon} {action.description}
                 </CardBody>
-              ))}
             </Card>
+            ))}
             </Col>       
-              <div className="d-flex justify-content-center"><img src={home} alt="animation gif" style={{ width: '100%' }} />
+          </div>
+          <div className="d-flex justify-content-center mt-5"><img src={home} alt="animation gif" style={{ width: '50%' }} />
               </div>
-          </div> 
+            <div className='bg-container-home'>
+              <img src={booksfooter} alt='img' />
+            </div>
+
           </Row>
 
     </div>
