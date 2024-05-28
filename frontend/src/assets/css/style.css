@@ -910,8 +910,17 @@ progress {
       overflow-y: auto; /* Add a vertical scrollbar */
       position: relative; /* Positioning context for the zoom icons */
     }
+    .exam-area {
+      flex: 0 0 40%; /* Take up 30% of the container width */
+      padding: 10px;
+    }
     
-    
+    .exam-preview {
+      flex: 0 0 60%; /* Take up 70% of the container width */
+      padding: 5px;
+      overflow-y: auto; /* Add a vertical scrollbar */
+      position: relative; /* Positioning context for the zoom icons */
+    }
     .zoom-icons {
       margin-bottom: 10px;
     }
@@ -23229,5 +23238,29 @@ span#counter {
         max-height: 100px; /* Ajustez cette valeur selon vos besoins */
         overflow-y: auto;
       }
+      .exam-table {
+        border: 1px solid #dee2e6; /* Example border style */
+    }
+/* For screen display */
+.custom-table-border, .custom-table-border th, .custom-table-border td {
+  border: 1px solid black !important;
+  border-collapse: collapse !important;
+}
+
+
+/* For print */
+@media print {
+  table, th, td {
+    border: 1px solid black !important;
+    border-collapse: collapse !important;
+  }
+}
+
+/* Custom class for Jodit tables */
+.jodit-wysiwyg table, .jodit-wysiwyg th, .jodit-wysiwyg td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
       
       

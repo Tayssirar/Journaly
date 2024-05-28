@@ -1,0 +1,33 @@
+/* customFonts.css */
+@font-face {
+    font-family: 'Cursif';
+    src: url('./Cursifl.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'SeyesFont';
+    src: url('./SEYESNDL.TTF') format('truetype');
+}
+@font-face {
+    font-family: 'BelleAllure';
+    src: url('./BelleAllureCM-Gros.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Ecole';
+    src: url('./ec.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'LignesSeyes';
+    src: url('./Lignes_seyes_sans_3mm.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lignes';
+    src: url('./lignes.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Maternelle';
+    src: url('./Maternellecolorcreusesans.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Plume';
+    src: url('./PLUMBDL.TTF') format('truetype');
+}

@@ -80,6 +80,11 @@ import AddNote from '../pages/note/AddNote';
 //Exams
 import AllExams from '../pages/exams/AllExams';
 import AddExam from '../pages/exams/AddExam';
+import Dicte from '../pages/exams/examTemplate/Dicte';
+import Lecture from '../pages/exams/examTemplate/Lecture';
+import Langue from '../pages/exams/examTemplate/Langue';
+import Ecriture from '../pages/exams/examTemplate/Ecriture';
+import Production from '../pages/exams/examTemplate/Production';
 //program
 import AllProgram from '../pages/program/AllProgram';
 import AddProgram from '../pages/program/AddProgram';
@@ -165,6 +170,12 @@ const RoutesMarkup = () => {
     {url:"/AddExam", component: AddExam},
     {url:"/Delete", component:DeleteRapport },
     {url:"/Update", component: UpdateRapport},
+    {url:"/Lecture", component: Lecture},
+    {url:"/Production" ,component: Production},
+    {url:"/Langue", component: Langue},
+    {url:"/Dictee", component: Dicte},
+    {url:"/Ecriture" ,component: Ecriture},
+
     //Program
     {url: "/AllProgram", component: AllProgram},
     {url:"/AddProgram", component: AddProgram},

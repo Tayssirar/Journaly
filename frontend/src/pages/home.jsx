@@ -68,7 +68,7 @@ function Home() {
           <div className="d-flex justify-content-center mt-5"><img src={home} alt="animation gif" style={{ width: '50%' }} />
               </div>
             <div className='bg-container-home'>
-              <img src={booksfooter} alt='img' />
+              <img src={booksfooter} alt='img' style={{height:'200px'}} />
             </div>
 
           </Row>
