@@ -83,7 +83,7 @@ export function loginAction(email, password, navigate, userRole) {
                         navigate('/TeacherDashboard');
                         break;
                     default:
-                        navigate('/chooseUer'); 
+                        navigate('/chooseUser'); 
                         break;
 
                 }

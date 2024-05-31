@@ -51,20 +51,18 @@ function Profil({ profileType, ProfileData }) {
         <div>
             <Col>
                 <Card>
-                    <div className="text-center p-3 overlay-box">
-                        <div className="profile-photo">
-                            <img src={image} width="100" className="img-fluid rounded-circle" alt="" />
-                        </div>
-                        <h3 className="mt-3 mb-1 text-white">nom</h3>
-                        <p className="text-white mb-0">{profileType}</p>
-                    </div>
+
                 </Card>
             </Col>
             <Row>
                 <div >
                     <Card>
-                        <CardHeader>
-                            <h2 className="card-title">Les informations</h2>
+                        <CardHeader className="text-center row text-white bg-light ">
+                                <div className="profile-photo ">
+                                    <img src={image} width="100" className="img-fluid rounded-circle" alt="" />
+                                </div>
+                                <h3 className="mt-3 mb-1 text-white ">nom</h3>
+                                <p className="text-white mb-0 ">{profileType}</p>
                         </CardHeader>
                         <CardBody>
                             <div>

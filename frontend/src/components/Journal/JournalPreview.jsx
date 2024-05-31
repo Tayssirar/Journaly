@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
 import { Card, CardBody, Col, Table } from 'react-bootstrap';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
-import ZoomButton from './ZoomButton';
+import ZoomButton from '../ZoomButton';
 import ReactToPrint from 'react-to-print';
 
-const JournalPreview = React.forwardRef(({ previewData, date,time1, time2, classe, theme, subTheme, education_a, journee }, ref) => {
+const JournalPreview = React.forwardRef(({ previewData, date, time1, time2, classe, theme, subTheme, education_a, journee }, ref) => {
   const [zoom, setZoom] = useState(1);
   const componentRef = React.useRef();
-
-  const zoomIn = () => {
-    setZoom((prevZoom) => Math.min(prevZoom + 0.1, 3));
-  };
-
-  const zoomOut = () => {
-    setZoom((prevZoom) => Math.max(prevZoom - 0.1, 0.5));
-  };
 
   return (
     <div>
@@ -44,17 +36,17 @@ const JournalPreview = React.forwardRef(({ previewData, date,time1, time2, class
                     <Table responsive>
                       <thead className='table-primary'>
                         <tr>
-                          <th colSpan='2'>Date {date}</th>
-                          <th colSpan='3'>Classe {classe} horaire du {time1} au {time2}</th>
+                          <th colSpan='2'>Date: {date}</th>
+                          <th colSpan='3'>Classe: {classe} horaire du {time1.toLocaleTimeString()} au {time2}</th>
                           <th rowSpan={3}>Éducation à: {education_a}</th>
                         </tr>
                         <tr>
-                          <th >Unité {theme}</th>
-                          <th colSpan='3'>Thème {theme}</th>
+                          <th>Unité: {theme}</th>
+                          <th colSpan='3'>Thème: {theme}</th>
                         </tr>
                         <tr>
-                          <th colSpan='2'>Module {subTheme} Journée {journee}</th>
-                          <th colSpan='3'>Sous-thème {subTheme}</th>
+                          <th colSpan='2'>Module: {subTheme} Journée: {journee}</th>
+                          <th colSpan='3'>Sous-thème: {subTheme}</th>
                         </tr>
                       </thead>
                     </Table>
@@ -76,12 +68,12 @@ const JournalPreview = React.forwardRef(({ previewData, date,time1, time2, class
                             <td>
                               <strong>{preData.title}</strong>
                               <br />
-                              {preData.content.Type } <br /> { preData.content.Duré}
+                              {preData.content.Type} <br /> {preData.content.Duré}
                             </td>
                             <td>{preData.content.Les_objectifs_spécifiques}</td>
                             <td>{preData.content.Les_objectifs_de_la_séance}</td>
-                            <td>{preData.content.contenu } <br /> { preData.content.La_situation } <br /> { preData.content.Les_supports } <br />{ preData.content.Les_structures } <br />{ preData.content.Les_lexiques }</td>
-                            <td>{ preData.content.Les_étapes}</td>
+                            <td>{preData.content.contenu} <br /> {preData.content.La_situation} <br /> {preData.content.Les_supports} <br />{preData.content.Les_structures} <br />{preData.content.Les_lexiques}</td>
+                            <td>{preData.content.Les_étapes}</td>
                             <td>{preData.content.La_compétence_de_vie}</td>
                             <td>{preData.content.Observation}</td>
                           </tr>

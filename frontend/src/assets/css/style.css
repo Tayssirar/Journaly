@@ -60,6 +60,8 @@
 @import url("./../icons/simple-line-icons/css/simple-line-icons.css");
 @import url("./../icons/line-awesome/css/line-awesome.min.css");
 @import url("./../icons/flaticon/flaticon.css");
+@import url("./../icons/themify-icons/css/themify-icons.css");
+
 
 :root {
   --primary: #6a73fa;
@@ -23238,13 +23240,17 @@ span#counter {
         max-height: 100px; /* Ajustez cette valeur selon vos besoins */
         overflow-y: auto;
       }
-      .exam-table {
-        border: 1px solid #dee2e6; /* Example border style */
-    }
-/* For screen display */
-.custom-table-border, .custom-table-border th, .custom-table-border td {
+      .exam-table table, 
+      .exam-table th, 
+      .exam-table td {
+        border: 1px solid black !important;
+        border-collapse: collapse !important;
+      }
+.custom-jodit-editor  {
+  table,th ,td{
   border: 1px solid black !important;
   border-collapse: collapse !important;
+}
 }
 
 
@@ -23256,11 +23262,7 @@ span#counter {
   }
 }
 
-/* Custom class for Jodit tables */
-.jodit-wysiwyg table, .jodit-wysiwyg th, .jodit-wysiwyg td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
+
 
       
       

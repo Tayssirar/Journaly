@@ -4,11 +4,11 @@ import ReactToPrint from 'react-to-print';
 import { useLocation } from 'react-router-dom';
 import CustomJoditEditor from '../../../components/CustomJoditEditor';
 
-const Langue = () => {
+const Dicte = () => {
     const location = useLocation();
     const { selectedExam } = location.state || {};
 
-    console.log("🚀 ~ Langue ~ selectedExam:", selectedExam);
+    console.log("🚀 ~ Dicte ~ selectedExam:", selectedExam);
 
     const [content, setContent] = useState('');
     const componentRef = useRef();
@@ -70,7 +70,7 @@ const Langue = () => {
                                     <tr>
                                         <td colSpan="3">
                                             <div className="text-center">
-                                                <img src={selectedExam.selectedImage} alt="critère d'évaluation" className="img-fluid" />
+                                                <img src={selectedExam.selectedImage} alt="Bonne chance" className="img-fluid" />
                                             </div>
                                         </td>
                                     </tr>
@@ -84,4 +84,4 @@ const Langue = () => {
     );
 };
 
-export default Langue;
+export default Dicte;

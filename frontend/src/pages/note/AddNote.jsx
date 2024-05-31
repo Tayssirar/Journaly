@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle';
-import { Accordion, Button, Card, CardBody, CardHeader, CardTitle, Dropdown, DropdownButton, Form, Nav, OverlayTrigger, Row, Tab, TabContainer, TabContent, TabPane, Table, Tooltip } from 'react-bootstrap';
+import {Button, Card, CardBody, CardHeader, Form, Nav, OverlayTrigger, Row,TabContainer, TabContent, TabPane, Table, Tooltip } from 'react-bootstrap';
 import Select from 'react-select';
 import { ClasseOption, EvaluationTypeOption, NoteOption } from '../../data/OptionData';
 import { EcritCritere, LectureCritere, OralCritere, RecitationCritere } from '../../data/TheadData';

@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {store} from './store/store';
 import  ThemeContext  from "./assets/context/ThemeContext"; 
+import { PrintProvider } from './assets/context/PrintContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,7 +15,9 @@ root.render(
     <Provider store = {store}>
       <BrowserRouter basename='/'>
         <ThemeContext>
+        <PrintProvider>
           <App />
+        </PrintProvider>
         </ThemeContext>
       </BrowserRouter>
     </Provider>

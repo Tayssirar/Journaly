@@ -3,12 +3,13 @@ import { Card, CardBody, CardHeader, Table } from 'react-bootstrap';
 import ReactToPrint from 'react-to-print';
 import { useLocation } from 'react-router-dom';
 import CustomJoditEditor from '../../../components/CustomJoditEditor';
+import '../../../assets/css/fonts/customFonts.css';  // Ensure CSS is imported here
 
-const Dicte = () => {
+const Langue = () => {
     const location = useLocation();
     const { selectedExam } = location.state || {};
 
-    console.log("🚀 ~ Dicte ~ selectedExam:", selectedExam);
+    console.log("🚀 ~ Langue ~ selectedExam:", selectedExam);
 
     const [content, setContent] = useState('');
     const componentRef = useRef();
@@ -70,7 +71,7 @@ const Dicte = () => {
                                     <tr>
                                         <td colSpan="3">
                                             <div className="text-center">
-                                                <img src={selectedExam.selectedImage} alt="critère d'évaluation" className="img-fluid" />
+                                                <img src={selectedExam.selectedImage} alt="Bonne chance" className="img-fluid" />
                                             </div>
                                         </td>
                                     </tr>
@@ -84,4 +85,4 @@ const Dicte = () => {
     );
 };
 
-export default Dicte;
+export default Langue;

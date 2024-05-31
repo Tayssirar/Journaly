@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { ClasseOption, EvaluationTypeOption } from '../../../data/OptionData';
+import { ClasseOption, EvaluationTypeOption } from '../../data/OptionData';
 import { DatePicker } from 'rsuite';
-import lecture4trim1_2 from "../../../assets/images/exam/Lecture4trim1_2.png";
-import lecture4trim3 from "../../../assets/images/exam/Lecture4trim3.png";
-import dictee4trim1_2_3 from "../../../assets/images/exam/Dictee4trim1_2_3.png";
-import ecriture4trim1_2_3 from "../../../assets/images/exam/Ecriture4trim1_2_3.png";
-import production4trim1 from "../../../assets/images/exam/Production4trim1.png";
-import production4trim2_3 from "../../../assets/images/exam/Production4trim2_3.png";
+import lecture4trim1_2 from "../../assets/images/exam/Lecture4trim1_2.png";
+import lecture4trim3 from "../../assets/images/exam/Lecture4trim3.png";
+import dictee4trim1_2_3 from "../../assets/images/exam/Dictee4trim1_2_3.png";
+import ecriture4trim1_2_3 from "../../assets/images/exam/Ecriture4trim1_2_3.png";
+import production4trim1 from "../../assets/images/exam/Production4trim1.png";
+import production4trim2_3 from "../../assets/images/exam/Production4trim2_3.png";
 
-const StepOne = ({ setSelectedOptions, setDate }) => {
+const ExamForm = ({ setSelectedOptions, setDate }) => {
     const [classe, setClasse] = useState('');
     const [groupeOption, setGroupeOption] = useState([]);
     const [evaTypeOption, setEvaTypeOption] = useState('');
@@ -160,5 +160,5 @@ const StepOne = ({ setSelectedOptions, setDate }) => {
         );
     };
     
-    export default StepOne;
+    export default ExamForm;
     

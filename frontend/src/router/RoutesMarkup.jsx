@@ -80,11 +80,11 @@ import AddNote from '../pages/note/AddNote';
 //Exams
 import AllExams from '../pages/exams/AllExams';
 import AddExam from '../pages/exams/AddExam';
-import Dicte from '../pages/exams/examTemplate/Dicte';
-import Lecture from '../pages/exams/examTemplate/Lecture';
-import Langue from '../pages/exams/examTemplate/Langue';
-import Ecriture from '../pages/exams/examTemplate/Ecriture';
-import Production from '../pages/exams/examTemplate/Production';
+import Dicte from '../components/Exam/examTemplate/Dicte';
+import Lecture from '../components/Exam//examTemplate/Lecture';
+import Langue from '../components/Exam/examTemplate/Langue';
+import Ecriture from '../components/Exam/examTemplate/Ecriture';
+import Production from '../components/Exam/examTemplate/Production';
 //program
 import AllProgram from '../pages/program/AllProgram';
 import AddProgram from '../pages/program/AddProgram';

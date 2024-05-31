@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StepOne from "./steps/StepOne";
+import StepOne from "../../components/Exam/ExamForm";
 import PageTitle from '../../components/PageTitle';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -11,8 +11,6 @@ const AddExam = () => {
     const navigate = useNavigate();
 
     const handleNextClick = () => {
-        console.log("🚀 ~ handleNextClick ~ selectedOptions:", selectedOptions);
-        console.log("📅 Date value:", date); // Logging date value for debugging
     
         // Check if date is empty or null
         if (!date) {

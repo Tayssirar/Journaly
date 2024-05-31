@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import PageTitle from '../../components/PageTitle'
 import { Dropdown, Row, Tab, TabContainer } from 'react-bootstrap'
 import ListGridView from '../../components/ListGridView'
@@ -99,6 +99,7 @@ const onClick = (i) => {
                               <tbody>
                                 {teachers.map((data, ind)=>(
                                   <tr key={ind}>
+                                    <Link to='/TeacherProfile'>
                                     <td><img className="rounded-circle" width="35" src={data.profile} alt="" /> </td>                                                                                                                       
                                     <td>{data.nom}</td>                                                    
                                     <td>{data.region}</td>                                                    
@@ -107,6 +108,7 @@ const onClick = (i) => {
                                     <td>{data.nomination}</td>                                                                                                                                                  
                                     <td>{data.mobile}</td>
                                     <td>{data.email}</td>
+                                    </Link>
                                     <td>
                                       <Link to={"/UpdateTeacher"} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
                                       <Link to={"/DeleteTeacher"} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>

@@ -29,7 +29,6 @@ const theadInspectorData = [
     { heading: 'Sexe', sortingValue: 'sexe', value: '' },
     { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
     { heading: 'Email', sortingValue: 'email', value: '' },
-    { heading: '', sortingValue: '', value: '' },
 ];
 
 const theadAssistantData = [
@@ -73,10 +72,18 @@ const theadJournalData = [
   { heading: 'Num', value: '' },
   { heading: 'Classe',  value: '' },
   { heading: 'Module', value: '' },
-  { heading: 'Jounrée',value: '' },
+  { heading: 'Journée',value: '' },
   { heading: 'Date de création', value: '' },
   { heading: 'Date de modification', value: '' },
   { heading: 'Status', value: '' },
+  { heading: 'Action', value: '' },
+];
+const theadJournalViewData = [
+  { heading: 'Num', value: '' },
+  { heading: 'Classe',  value: '' },
+  { heading: 'Module', value: '' },
+  { heading: 'Journée',value: '' },
+  { heading: 'Date', value: '' },
   { heading: 'Action', value: '' },
 ];
 const theadPlanData = [
@@ -88,6 +95,15 @@ const theadPlanData = [
   { heading: 'Date de modification', value: '' },
   { heading: 'Status', value: '' },
   { heading: 'Action', value: '' },
+];
+const theadPlanViewData = [
+  { heading: 'Num', value: '' },
+  { heading: 'Classe',  value: '' },
+  { heading: 'Unité', value: '' },
+  { heading: 'Module',value: '' },
+  { heading: 'Commentaire',value: '' },
+  { heading: 'Action', value: '' },
+
 ];
 const theadProgramData = [
   { heading: 'Num', value: '' },
@@ -116,7 +132,15 @@ const theadExamData =[
   { heading: 'Date de modification', value:''},
   {heading: 'status', value:''},
   {heading: 'Action', value: ''},
-
+]
+const theadExamViewData =[
+  { heading: 'Num', value:''},
+  { heading: 'Classe', value:''},
+  { heading: 'Groupe', value:''},
+  { heading: 'Évaluation', value:''},
+  { heading: 'Date de passation', value:''},
+  {heading: 'Commentaire', value:''},
+  {heading: 'Action', value: ''},
 ]
 const theadRapportData =[
   { heading: 'Num', value:''},
@@ -126,6 +150,15 @@ const theadRapportData =[
   { heading: 'Date de modification', value:''},
   {heading: 'status', value:''},
   {heading: 'Action', value: ''},
+]
+const theadRapportViewData =[
+  { heading: 'Num', value:''},
+  { heading: 'Enseignant', value:''},
+  { heading: 'École', value:''},
+  { heading: 'Date', value:''},
+  {heading: 'Commentaire', value:''},
+  {heading: 'Action', value: ''},
+
 ]
 
 const RecitationCritere =[
@@ -267,8 +300,12 @@ export {
     EcritCritere,
     theadJournalData,
     theadPlanData,
+    theadPlanViewData,
     theadResultsData,
     theadProgramData,
     theadExamData,
     theadRapportData,
+    theadExamViewData,
+    theadRapportViewData,
+    theadJournalViewData,
 };

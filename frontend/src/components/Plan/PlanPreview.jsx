@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardBody, Col, Table } from 'react-bootstrap';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import ZoomButton from '../../components/ZoomButton';
+import ZoomButton from '../ZoomButton';
+import { usePrint } from '../../assets/context/PrintContext';
 import ReactToPrint from 'react-to-print';
+
+
 
 const PlanPreview = React.forwardRef(({ classe, theme, subTheme, education_a, planData }, ref) => {
   const [zoom, setZoom] = useState(1);
   const componentRef = React.useRef();
   const [data, setData] = useState([]);
+  const printRef = usePrint();
 
+  
   useEffect(() => {
     if (planData) {
-      setData(planData);
-      
+      setData(planData); 
     }
-  }, [planData]);
+    printRef.current = componentRef.current;
+  }, [planData, printRef]);
 
-  const zoomIn = () => {
-    setZoom((prevZoom) => Math.min(prevZoom + 0.1, 3));
-  };
 
-  const zoomOut = () => {
-    setZoom((prevZoom) => Math.max(prevZoom - 0.1, 0.5));
-  };
 
   return (
     <div>

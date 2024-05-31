@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import Select from 'react-select';
-import {  lectureOption, lifeSkillOptions } from '../data/OptionData';
+import {  lectureOption, lifeSkillOptions } from '../../data/OptionData';
 
 
 function Sections({sections, setSections, updatePreview}) {
@@ -47,7 +47,7 @@ function Sections({sections, setSections, updatePreview}) {
     return (
       <>
           <div
-        style={{ height: "370px" }}
+        style={{ height: "670px" }}
         className="widget-timeline dz-scroll style-1 height370 my-4 px-4"
     >
         {sections.map((section, index) => (

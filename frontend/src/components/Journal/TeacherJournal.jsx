@@ -1,19 +1,17 @@
-import React, {useState } from 'react'
-import PageTitle from '../../components/PageTitle'
-import { Dropdown, Row, Tab, TabContainer } from 'react-bootstrap'
-import ListGridView from '../../components/ListGridView'
+import React, { useState } from 'react'
+import { Dropdown, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { theadRapportData } from '../../data/TheadData'
+import { theadJournalViewData } from '../../data/TheadData'
+import { usePrint } from '../../assets/context/PrintContext';
+import ReactToPrint from 'react-to-print';
 
 
-function AllRapports() {
-    const [rapports
-        , setrapports
-
-    ] = useState([]);
+function TeacherJournal() {
+    const [journals, setJournals] = useState([]);
     const [sort, setSortData] = useState(10);
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(0);
+    const printRef = usePrint();
 
     const chargeData = (first, sec) => {
     for (var i = 0; i < data.length; ++i) {
@@ -36,30 +34,19 @@ function AllRapports() {
     chargeData(activePage.current * sort, (activePage.current + 1) * sort)
     }
     function DataSearch(e){  
-        const updatesData =  rapports
-        .filter(item =>{            
-            let selectdata = `${item.num} ${item.enseigant} ${item.ecole}  ${item.creationDate}${item.updateDate} ${item.status}`.toLowerCase();                          
+        const updatesData =  journals.filter(item =>{            
+            let selectdata = `${item.num} ${item.classe} ${item.module}  ${item.journee} ${item.creationDate}${item.updateDate} ${item.status}`.toLowerCase();                          
             return  selectdata.includes(e.target.value.toLowerCase())
         });        
-        setrapports
-        ([...updatesData]);
+        setJournals([...updatesData]);
         setActivePage(0);        
     }
   
   return (
     <div>
-        <PageTitle activeMenu={"Tous les rapports"} motherMenu={"Rapport"}/>
         <Row>
-          <TabContainer defaultActiveKey={"List"}>
-            <ListGridView/>
-            <div className="col-lg-12">
-              <Tab.Content className="row tab-content">
-                <Tab.Pane eventKey="List" className="col-lg-12">
+            <div className='col-lg-12'>
                   <div className='card'>
-                    <div className="card-header">
-                      <h4 className="card-title">Tous les rapports </h4>
-                      <Link to={"/AddRapport"} className="btn btn-primary">+ Ajouter Un Nouveau</Link>
-                    </div>
                     <div className='card-body'>
                       <div  className='dataTables_wrapper no-footer'>
                         <div className='table-responsive '>
@@ -94,7 +81,7 @@ function AllRapports() {
                           <table  className='className="display dataTable no-footer w-100'>
                               <thead>
                                 <tr>                                                
-                                  {theadRapportData.map((item, ind)=>(
+                                  {theadJournalViewData.map((item, ind)=>(
                                     <th key={ind}
                                     >{item.heading}
                                     </th>
@@ -102,18 +89,21 @@ function AllRapports() {
                                 </tr>
                               </thead>
                               <tbody>
-                                {rapports
-                                .map((data, ind)=>(
+                                {journals.map((data, ind)=>(
                                   <tr key={ind}>
                                     <td>{data.num}</td>                                                    
-                                    <td>{data.enseignant}</td>                                                    
-                                    <td>{data.ecole}</td>                                                    
-                                    <td>{data.creationDate}</td>                                                                                                                                                  
-                                    <td>{data.updateDate}</td>
-                                    <td>{data.status}</td>
+                                    <td>{data.classe}</td>                                                    
+                                    <td>{data.module}</td>                                                    
+                                    <td>{data.journee}</td>
+                                    <td>{data.Date}</td>                                                                                                                                                  
+                                    <td>{data.comment}</td>
                                     <td>
-                                      <Link to={"/UpdateRapport"} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
-                                      <Link to={"/DeleteRapport"} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
+                                      <ReactToPrint
+                                          trigger={() => <button className="btn btn-light" type="button">
+                                              <i className="fa fa-print" /> Imprimer
+                                          </button>}
+                                          content={() => printRef.current}
+                                      />
                                     </td>
                                   </tr>
                                 ))}
@@ -121,7 +111,7 @@ function AllRapports() {
                             </table>
                             <div className='d-sm-flex text-center justify-content-between align-items-center mt-3'>
                               <div className='dataTables_info'>
-                              Affichage de {activePage.current * sort + 1} à{' '}
+                              Affichage de {' '}
                                   {data.length > (activePage.current + 1) * sort
                                       ? (activePage.current + 1) * sort
                                       : data.length}{' '}
@@ -170,49 +160,9 @@ function AllRapports() {
                       </div>
                     </div>
                   </div>
-
-                </Tab.Pane>
-                <Tab.Pane eventKey="Grid" className="col-lg-12">
-                <div className="row">
-                  {rapports
-                  .map((Rapport, index) => (
-                    <div className="col-lg-4 col-md-6 col-sm-6 col-12" key={index}>
-                      <div className="card card-profile">
-                        <div className="card-header justify-content-end pb-0 border-0">
-                          <Dropdown>
-                            <Dropdown.Toggle as="button" className="btn btn-link i-false" type="button">
-                              <span className="dropdown-dots fs--1"></span>
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu align="end" className="dropdown-menu dropdown-menu-right border py-0">
-                              <div className="py-2">
-                                <Link to={"/UpdateRapport"} className="dropdown-item">Modifier</Link>
-                                <Link to={"/DeleteRapport"} className="dropdown-item text-danger">Supprimer</Link>
-                              </div>
-                            </Dropdown.Menu>
-                          </Dropdown>
-                        </div>
-                        <div className="card-body pt-2">
-                          <div className="text-center">
-                            <ul className="list-group mb-3 list-group-flush">
-                              {Object.keys(Rapport).map((key, ind) => (
-                                <li className="list-group-item px-0 d-flex justify-content-between" key={ind}>
-                                 <strong> {key}: </strong>{Rapport[key]}
-                                </li>
-                              ))}
-                            </ul>
-                            <Link to={"/UpdateRapport"} className="btn btn-outline-primary btn-rounded mt-3 px-4">Afficher</Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Tab.Pane>
-            </Tab.Content>
-          </div>
-        </TabContainer>
+            </div>
       </Row>
     </div>
   );
 }
-export default AllRapports
+export default TeacherJournal

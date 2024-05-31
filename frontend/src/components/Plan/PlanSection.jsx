@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import { Button } from "react-bootstrap";
-import { lectureOption, lifeSkillOptions } from '../data/OptionData';
+import { lectureOption, lifeSkillOptions } from '../../data/OptionData';
 
 const PlanSection = ({ data, activeJournee, onDataChange }) => {
     const handleSectionChange = (sectionId, field, value) => {
