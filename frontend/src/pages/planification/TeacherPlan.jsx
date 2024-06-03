@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { Dropdown, Row } from 'react-bootstrap';
+import { Dropdown, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { theadPlanViewData } from '../../data/TheadData';
 import { usePrint } from '../../assets/context/PrintContext';
 import ReactToPrint from 'react-to-print';
 import axios from 'axios';
+import FeedbackModal from '../../components/FeedbackModal';
 
-function TeacherPlan() {
+function TeacherPlan({ userRole }) {
     const [plans, setPlans] = useState([]);
     const [sort, setSortData] = useState(10);
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(0);
+    const [showModal, setShowModal] = useState(false);
+    const [currentComment, setCurrentComment] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(null);
     const printRef = usePrint();
 
     // Static data for testing
     useEffect(() => {
         const staticData = [
-            { num: 1, classe: 'Class 1', unite: 'Unit 1', module: 'Module 1', comment: 'Initial comment 1' },
-            { num: 2, classe: 'Class 2', unite: 'Unit 2', module: 'Module 2', comment: 'Initial comment 2' },
-            { num: 3, classe: 'Class 3', unite: 'Unit 3', module: 'Module 3', comment: 'Initial comment 3' },
+            { num: 1, classe: 'Class 1', unite: 'Unit 1', module: 'Module 1' },
+            { num: 2, classe: 'Class 2', unite: 'Unit 2', module: 'Module 2' },
+            { num: 3, classe: 'Class 3', unite: 'Unit 3', module: 'Module 3' },
             // Add more static data as needed
         ];
         setPlans(staticData);
@@ -79,6 +83,19 @@ function TeacherPlan() {
         setActivePage(0);
     }
 
+    const handleShowModal = (index) => {
+        setCurrentIndex(index);
+        setCurrentComment(plans[index].comment);
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => setShowModal(false);
+
+    const handleSaveComment = () => {
+        handleCommentChange(currentIndex, currentComment);
+        setShowModal(false);
+    };
+
     return (
         <div>
             <Row>
@@ -115,7 +132,7 @@ function TeacherPlan() {
                                             </label>
                                         </div>
                                     </div>
-                                    <table className='className="display dataTable no-footer w-100'>
+                                    <table className='display dataTable no-footer w-100'>
                                         <thead>
                                             <tr>
                                                 {theadPlanViewData.map((item, ind) => (
@@ -131,11 +148,9 @@ function TeacherPlan() {
                                                     <td>{data.unite}</td>
                                                     <td>{data.module}</td>
                                                     <td>
-                                                        <input
-                                                            type="text"
-                                                            value={data.comment}
-                                                            onChange={(e) => handleCommentChange(ind, e.target.value)}
-                                                        />
+                                                        <Button variant="primary" onClick={() => handleShowModal(ind)}>
+                                                            Feedback
+                                                        </Button>
                                                     </td>
                                                     <td>
                                                         <ReactToPrint
@@ -200,7 +215,17 @@ function TeacherPlan() {
                     </div>
                 </div>
             </Row>
+
+            <FeedbackModal
+                show={showModal}
+                handleClose={handleCloseModal}
+                comment={currentComment}
+                setComment={setCurrentComment}
+                userRole={userRole}
+                handleSave={handleSaveComment}
+            />
         </div>
     );
 }
+
 export default TeacherPlan;

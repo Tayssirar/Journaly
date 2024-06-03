@@ -84,6 +84,7 @@ const theadJournalViewData = [
   { heading: 'Module', value: '' },
   { heading: 'Journée',value: '' },
   { heading: 'Date', value: '' },
+  { heading: 'Feedback', value: '' },
   { heading: 'Action', value: '' },
 ];
 const theadPlanData = [
@@ -101,7 +102,7 @@ const theadPlanViewData = [
   { heading: 'Classe',  value: '' },
   { heading: 'Unité', value: '' },
   { heading: 'Module',value: '' },
-  { heading: 'Commentaire',value: '' },
+  { heading: 'Feedback',value: '' },
   { heading: 'Action', value: '' },
 
 ];
@@ -139,7 +140,7 @@ const theadExamViewData =[
   { heading: 'Groupe', value:''},
   { heading: 'Évaluation', value:''},
   { heading: 'Date de passation', value:''},
-  {heading: 'Commentaire', value:''},
+  {heading: 'Feedback', value:''},
   {heading: 'Action', value: ''},
 ]
 const theadRapportData =[
@@ -156,7 +157,7 @@ const theadRapportViewData =[
   { heading: 'Enseignant', value:''},
   { heading: 'École', value:''},
   { heading: 'Date', value:''},
-  {heading: 'Commentaire', value:''},
+  {heading: 'Feedback', value:''},
   {heading: 'Action', value: ''},
 
 ]
