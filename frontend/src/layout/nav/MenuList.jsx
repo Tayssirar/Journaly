@@ -117,6 +117,10 @@ export const MenuList = {
             title: "Modifier un élève",
             to: "UpdateStudent",
           },
+          {
+            title: "Performance des élèves",  // New item
+            to: "StudentPerformance",
+          },
         ],
       },
       {
@@ -235,6 +239,10 @@ export const MenuList = {
             title: "Modifier un élève",
             to: "UpdateStudent",
           },
+          {
+            title: "Performance des élèves",  // New item
+            to: "StudentPerformance",
+          },
         ],
       }
     ],
@@ -293,6 +301,10 @@ export const MenuList = {
           {
             title: "Voir les élèves",
             to: "AllStudents ",
+          },
+          {
+            title: "Performance des élèves",  // New item
+            to: "StudentPerformance",
           },
         ],
       },
@@ -357,7 +369,11 @@ export const MenuList = {
           {
               title: 'Attribuer des notes',
               to: 'AddNote',
-          },           
+          }, 
+          {
+            title: 'Tableau de recensement et de classification des erreurs',
+            to: 'ErrorClassification',
+          } ,         
       ],
   },
     //Rapport   

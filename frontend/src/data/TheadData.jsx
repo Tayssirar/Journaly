@@ -111,7 +111,6 @@ const theadProgramData = [
   { heading: 'Classe',  value: '' },
   { heading: 'Unité', value: '' },
   { heading: 'Module',value: '' },
-  { heading: 'Date ', value: '' },
   { heading: 'Action', value: '' },
 ];
 const theadResultsData =[

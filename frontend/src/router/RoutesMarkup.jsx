@@ -31,6 +31,7 @@ import AllStudents from '../pages/student/AllStudents';
 import AddStudent from '../pages/student/AddStudent';
 import UpdateStudent from '../pages/student/UpdateStudent';
 import  StudentProfile from '../pages/student/StudentProfile';
+import StudentPerformance from '../pages/student/StudentPerformance';
 //Inspector
 import AllInspectors from '../pages/inspector/AllInspectors';
 import AddInspector from '../pages/inspector/AddInspector';
@@ -77,6 +78,7 @@ import Register from '../pages/authentication/Registration';
 //Note
 import AllResults from '../pages/note/AllResults';
 import AddNote from '../pages/note/AddNote';
+import ErrorClassification from '../components/ErrorClassification';
 //Exams
 import AllExams from '../pages/exams/AllExams';
 import AddExam from '../pages/exams/AddExam';
@@ -90,7 +92,7 @@ import AllProgram from '../pages/program/AllProgram';
 import AddProgram from '../pages/program/AddProgram';
 //rapport
 import AllRapports from '../pages/rapport/AllRaports';
-import AddRapport from '../pages/rapport/AddRapport';
+import AddRapportVisite from '../pages/rapport/AddRapportVisite';
 import UpdateRapport from '../pages/rapport/UpdateRapport';
 import DeleteRapport from '../pages/rapport/DeleteRapport';
 
@@ -130,6 +132,7 @@ const RoutesMarkup = () => {
     { url: "/UpdateStudent", component: UpdateStudent },
     { url: "/StudentProfile", component:  StudentProfile },
     {url:"/Delete", component:DeleteRapport },
+    {url:"/StudentPerformance", component: StudentPerformance},
     //Assistant
     { url: "/AllAssistants", component: AllAssistants },
     { url: "/AddAssistant", component: AddAssistant },
@@ -165,6 +168,7 @@ const RoutesMarkup = () => {
     {url:"/AddNote", component: AddNote},
     {url:"/Delete", component:DeleteRapport },
     {url:"/Update", component: UpdateRapport},
+    {url: "/ErrorClassification", component: ErrorClassification},
     //Exams
     {url: "/AllExams", component: AllExams},
     {url:"/AddExam", component: AddExam},
@@ -183,7 +187,7 @@ const RoutesMarkup = () => {
     {url:"/Update", component: UpdateRapport},
     //Rapport
     {url: "/AllRapport", component: AllRapports},
-    {url:"/AddRapport", component: AddRapport},
+    {url:"/AddRapport", component: AddRapportVisite},
     {url:"/DeleteRapport", component:DeleteRapport },
     {url:"/UpdateRapport", component: UpdateRapport},
 
