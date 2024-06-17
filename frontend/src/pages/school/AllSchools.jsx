@@ -52,7 +52,7 @@ const onClick = (i) => {
                 <Tab.Pane eventKey="List" className="col-lg-12">
                   <div className='card'>
                     <div className="card-header">
-                      <h4 className="card-title">Tous les enseignants </h4>
+                      <h4 className="card-title">Tous les écoles </h4>
                       <Link to={"/AddSchool"} className="btn btn-primary">+ Ajouter Un Nouveau</Link>
                     </div>
                     <div className='card-body'>

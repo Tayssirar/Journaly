@@ -3,7 +3,8 @@ import Select from 'react-select';
 import { Button } from "react-bootstrap";
 import { lectureOption, lifeSkillOptions } from '../../data/OptionData';
 
-const PlanSection = ({ data, activeJournee, onDataChange }) => {
+const PlanSection = ({ data, activeJournee, onDataChange, onAddSection, onDeleteSection }) => {
+    const sections = data.journee[activeJournee]?.sections || [];
     const handleSectionChange = (sectionId, field, value) => {
         const updatedData = { ...data };
         const sections = updatedData.journee[activeJournee].sections;
@@ -14,15 +15,14 @@ const PlanSection = ({ data, activeJournee, onDataChange }) => {
         onDataChange(updatedData);
     };
 
-    const sections = data.journee[activeJournee].sections;
 
     return (
-        <div style={{ height: "370px" }} className="widget-timeline dz-scroll style-1 height370 my-4 px-4">
+        <div style={{ height: "700px" }} className="widget-timeline dz-scroll style-1 height370 ">
             {sections.map((section, index) => (
                 <div key={index}>
                     <div className="d-flex justify-content-between align-items-center mb-3">
                         <h6 className="m-0">{section.title}</h6>
-                        <Button className="btn-rounded-sm " variant="outline-danger" onClick={() => handleSectionChange(section.id, 'remove', null)}>
+                        <Button className="btn-rounded-sm " variant="danger tp-btn-light" onClick={() => onDeleteSection(section.id)}>
                             <i className="fas fa-times" />
                         </Button>
                     </div>
@@ -65,6 +65,7 @@ const PlanSection = ({ data, activeJournee, onDataChange }) => {
                     ))}
                 </div>
             ))}
+            <Button className="btn-rounded-sm mb-3" onClick={onAddSection}>Ajouter</Button>
         </div>
     );
 };

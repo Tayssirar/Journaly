@@ -3,6 +3,8 @@ import React,{ useContext, useEffect, useState} from "react";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import userImg from '../../assets/images/user.jpg'
+import headmaster from '../../assets/images/headmaster.jpg'
+
 
 import { ThemeContext } from "../../assets/context/ThemeContext";
 import  Logout  from "../nav/Logout";
@@ -23,7 +25,7 @@ const Header = ({ onNote, userRole }) => {
             setProfileLink('/assistantProfile');
             break;
         case 'headmaster':
-            setProfileImg();
+            setProfileImg(headmaster);
             setProfileLink('/headmasterProfile');
             break;
         case 'inspector':

@@ -8,10 +8,15 @@ import { RecitationCritere } from '../data/TheadData';
 
 const ErrorClassification = () => {
   const [errors, setErrors] = useState([{ student: '', description: '', criterea: '', source: '', remediation: '' }]);
-  const [classe, setClasse] = useState(null);
-  const [groupeOption, setGroupeOption] = useState(null);
-  const [evaTypeOption, setEvaTypeOption] = useState(null);
-  const [students, setStudents] = useState([]); // Assume this is fetched from an API or static data
+  const [classe, setClasse] = useState(ClasseOption[0]); // Default to the first class option
+  const [groupeOption, setGroupeOption] = useState(null); // Set default group option if needed
+  const [evaTypeOption, setEvaTypeOption] = useState(EvaluationTypeOption[0]); // Default to the first evaluation type option
+  const [students, setStudents] = useState([
+    { value: '1', label: 'Ahmed Ben Ali' },
+    { value: '2', label: 'Fatma Ben Salem' },
+    { value: '3', label: 'Mohamed Trabelsi' },
+    { value: '4', label: 'Nadia Jebali' },
+  ]);
 
   const handleChange = (index, event) => {
     const newErrors = [...errors];
@@ -26,14 +31,21 @@ const ErrorClassification = () => {
   };
 
   const callChatGPT = async (criterea, error) => {
-    try {
-      const response = await axios.post('https://api.openai.com/sk-proj-FLP3f5EXCS2EFwqWfCqPT3BlbkFJWT8BCIV5EsVFl0id36WY', {
-        prompt: `Pour le critère "${criterea}" et l'erreur "${error}", donnez une possible source d'erreur en 100 mots maximum et un exercice de remédiation en 300 mots maximum.`,
-      });
+    // Static examples for demonstration purposes
+    const staticExamples = {
+      "Oublie des mots ou saute des vers": {
+        source: "L'élève ne se souvient pas bien des mots ou n'a pas suffisamment répété le poème.",
+        remediation: "Répétition espacée: Encourager l'élève à répéter le poème à plusieurs reprises sur plusieurs jours. Utilisation de supports visuels: Utiliser des images ou des vidéos pour aider l'élève à mémoriser les vers. Segmentation du poème: Diviser le poème en petites sections et les apprendre une par une avant de les réciter ensemble. Création d'un poème visuel: L'élève peut dessiner les scènes décrites dans le poème pour se rappeler des vers."
+      },
+      "Chante faux ou hors du rythme": {
+        source: "L'élève a des difficultés avec les notes de musique ou le rythme de la chanson.",
+        remediation: "Pratique avec un métronome: Utiliser un métronome pour aider l'élève à maintenir le rythme. Entraînement auditif: Faire des exercices d'écoute pour que l'élève apprenne à reconnaître et à reproduire les notes correctement. Chant en groupe: Encourager l'élève à chanter en groupe pour apprendre le rythme et la mélodie des autres. Enregistrement et écoute: Enregistrer la voix de l'élève et la comparer avec la version correcte pour identifier les erreurs et les corriger."
+      }
+    };
 
-      return response.data;
-    } catch (error) {
-      console.error('Error calling ChatGPT API:', error);
+    if (staticExamples[error]) {
+      return staticExamples[error];
+    } else {
       return { source: '', remediation: '' };
     }
   };
@@ -71,15 +83,33 @@ const ErrorClassification = () => {
             <Form className='d-flex justify-content-between'>
               <div className="form-group mr-2">
                 <label className="form-label">Classe</label>
-                <Select isSearchable={false} options={ClasseOption} className="custom-react-select" value={classe} onChange={(e) => setClasse(e.value)} />
+                <Select
+                  isSearchable={false}
+                  options={ClasseOption}
+                  className="custom-react-select"
+                  value={classe}
+                  onChange={(selectedOption) => setClasse(selectedOption)}
+                />
               </div>
               <div className="form-group mr-2">
                 <label className="form-label">Groupe</label>
-                <Select isSearchable={false} options={groupeOption} className="custom-react-select" value={groupeOption} onChange={(e) => setGroupeOption(e.value)} />
+                <Select
+                  isSearchable={false}
+                  options={groupeOption}
+                  className="custom-react-select"
+                  value={groupeOption}
+                  onChange={(selectedOption) => setGroupeOption(selectedOption)}
+                />
               </div>
               <div className="form-group">
                 <label className="form-label">Évaluation</label>
-                <Select isSearchable={false} options={EvaluationTypeOption} className="custom-react-select" value={evaTypeOption} onChange={(e) => setEvaTypeOption(e.value)} />
+                <Select
+                  isSearchable={false}
+                  options={EvaluationTypeOption}
+                  className="custom-react-select"
+                  value={evaTypeOption}
+                  onChange={(selectedOption) => setEvaTypeOption(selectedOption)}
+                />
               </div>
             </Form>
           </CardHeader>
@@ -143,7 +173,7 @@ const ErrorClassification = () => {
                                 name="source"
                                 value={error.source}
                                 onChange={(event) => handleChange(index, event)}
-                                readOnly
+                                
                               />
                             </td>
                             <td>
@@ -152,7 +182,7 @@ const ErrorClassification = () => {
                                 name="remediation"
                                 value={error.remediation}
                                 onChange={(event) => handleChange(index, event)}
-                                readOnly
+                                
                               />
                             </td>
                           </tr>

@@ -23218,7 +23218,7 @@ span#counter {
       
       .content-container-home {
         position: absolute;
-        top: 16%;
+        top: 18%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -23226,7 +23226,7 @@ span#counter {
       
       .text-left-container {
         position: absolute;
-        top: 35%;
+        top: 37%;
         left: 8%; /* Adjust this value as needed to position it properly */
         transform: translate(0, -50%);
         text-align: left;

@@ -185,17 +185,6 @@ export const MenuList = {
       },
   ]
   },
-  {
-    title: "École",
-    classsChange: "mm-collapse",
-    iconStyle: <i className="la la-building" />,
-    content: [
-      {
-        title: "Voir les écoles",
-        to: "AllSchools",
-      },
-    ],
-  },
       {
         title: "École",
         classsChange: "mm-collapse",

@@ -81,7 +81,7 @@ const EvaluationTypeOption = [
     { value: '9', label: "au terme du trimestre 3" },
 ]
 const NoteOption = [
-    { value: '1', label: 'nombre sur 20' },
+    { value: '1', label: 'nombre' },
     { value: '2', label: "des symboles + et -" },
 ]
 

@@ -56,6 +56,8 @@ const theadStudentData = [
     { heading: 'Classe', sortingValue: 'classe', value: '' },
     { heading: 'Groupe', sortingValue: 'groupe', value: '' },
     { heading: 'Date de naissance', sortingValue: 'birthdate', value: '' },
+    { heading: 'Action',  value: '' },
+
 ];
 
 const theadEventData = [

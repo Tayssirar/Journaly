@@ -5,34 +5,56 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Alert from "sweetalert2";
-import axios from "axios";
 import frLocale from '@fullcalendar/core/locales/fr'; // Import French locale
 
 const EventCalendar = () => {
   const [calendarEvents, setCalendarEvents] = useState([]);
-  const [customEvents, setCustomEvents] = useState([]); // State for custom events from MongoDB
+  const [customEvents, setCustomEvents] = useState([
+    {
+      title: "Rendre des devoirs (Niveau 1)",
+      start: new Date("2024-06-12"),
+      end: new Date("2024-06-12")
+    },
+    {
+      title: "Rendre des devoirs (Niveau 2)",
+      start: new Date("2024-06-13"),
+      end: new Date("2024-06-13")
+    },
+    {
+      title: "Rendre des devoirs (Niveau 3)",
+      start: new Date("2024-06-14"),
+      end: new Date("2024-06-14")
+    },
+    {
+      title: "مجالس الأقسام (Réunion des sections)",
+      start: new Date("2024-06-24"),
+      end: new Date("2024-06-24")
+    },
+    {
+      title: "Concours national 6ème année",
+      start: new Date("2024-06-21"),
+      end: new Date("2024-06-23")
+    },
+    {
+      title: "Fête de fin d'année scolaire",
+      start: new Date("2024-06-27"),
+      end: new Date("2024-06-27")
+    }
+  ]); // State for custom events from static data
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // Fetch national events from Google Calendar
-        const response = await axios.get("https://www.googleapis.com/calendar/v3/calendars/en.tn.official%23holiday@group.v.calendar.google.com/events?key=AIzaSyBL2G5M3C2CtTpVZ8267yE0NmOIqXEF_TI");
-        const formattedEvents = response.data.items.map((event) => ({
-          title: event.summary,
-          start: new Date(event.start.date), // Convert date string to Date object
-          end: new Date(event.end.date), // Convert date string to Date object
-        }));
-        setCalendarEvents(formattedEvents);
+        // Fetch national events from Google Calendar (commented out for this example)
+        // const response = await axios.get("https://www.googleapis.com/calendar/v3/calendars/en.tn.official%23holiday@group.v.calendar.google.com/events?key=YOUR_API_KEY");
+        // const formattedEvents = response.data.items.map((event) => ({
+        //   title: event.summary,
+        //   start: new Date(event.start.date), // Convert date string to Date object
+        //   end: new Date(event.end.date), // Convert date string to Date object
+        // }));
+        // setCalendarEvents(formattedEvents);
 
-        // Fetch custom events from MongoDB
-        const customResponse = await axios.get("https://your-mongodb-api.com/events"); // Replace with your MongoDB API endpoint
-        const customFormattedEvents = customResponse.data.map((event) => ({
-          title: event.title,
-          start: new Date(event.startDate), // Convert date string to Date object
-          end: new Date(event.endDate), // Convert date string to Date object
-          color: "orange", // Set a different color for custom events
-        }));
-        setCustomEvents(customFormattedEvents);
+        // In this example, we're only using static custom events
       } catch (error) {
         console.error("Error fetching events:", error);
       }
@@ -62,7 +84,7 @@ const EventCalendar = () => {
       `,
       showCancelButton: false,
       confirmButtonColor: "#3085d6",
-      confirmButtonText: "Close",
+      confirmButtonText: "Fermer",
     });
   };
 
@@ -91,7 +113,7 @@ const EventCalendar = () => {
                   locales={[frLocale]} // Set French locale
                   locale="fr" // Set French as the default locale
                   slotMinTime="08:00:00" // Set the minimum time slot to 8:00 AM
-                  slotMaxTime="18:00:00" // Set the maximum time slot to 5:00
+                  slotMaxTime="18:00:00" // Set the maximum time slot to 5:00 PM
                 />
               </div>
             </Card.Body>
