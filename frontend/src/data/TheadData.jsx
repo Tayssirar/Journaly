@@ -10,6 +10,8 @@
     { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
     { heading: 'Email', sortingValue: 'email', value: '' },
     { heading: 'École', sortingValue: 'ecole', value: '' },
+    { heading: 'Action',  value: '' },
+
   ];
 
   const theadHeadmasterData = [
@@ -20,6 +22,8 @@
     { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
     { heading: 'Email', sortingValue: 'email', value: '' },
     { heading: 'École', sortingValue: 'ecole', value: '' },
+    { heading: 'Action',  value: '' },
+
 ];
 
 const theadInspectorData = [
@@ -27,8 +31,12 @@ const theadInspectorData = [
     { heading: 'Nom', sortingValue: 'name', value: '' },
     { heading: 'Région', sortingValue: 'region', value: '' },
     { heading: 'Sexe', sortingValue: 'sexe', value: '' },
+    { heading: 'Date de naissance', sortingValue: 'birthdate', value: '' },
+    { heading: 'École', sortingValue: 'ecole', value: '' },
     { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
     { heading: 'Email', sortingValue: 'email', value: '' },
+    { heading: 'Action',  value: '' },
+
 ];
 
 const theadAssistantData = [
@@ -38,14 +46,17 @@ const theadAssistantData = [
     { heading: 'Sexe', sortingValue: 'sexe', value: '' },
     { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
     { heading: 'Email', sortingValue: 'email', value: '' },
-    { heading: '', sortingValue: '', value: '' },
+    { heading: 'Action',  value: '' },
 ];
 
 const theadSchoolData = [
-    { heading: 'Profil', sortingValue: 'profile', value: '' },
     { heading: 'Nom', sortingValue: 'name', value: '' },
     { heading: 'Région', sortingValue: 'region', value: '' },
-    { heading: 'Adresse', sortingValue: 'adresse', value: '' },
+    { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
+    { heading: 'Email', sortingValue: 'email', value: '' },
+    { heading: 'Action',  value: '' },
+
+
 ];
 
 const theadStudentData = [
@@ -61,7 +72,6 @@ const theadStudentData = [
 ];
 
 const theadEventData = [
-    {heading: 'Num', sortingVale:"num"},
     {heading: 'Titre', sortingVale:"name"},
     {heading: 'Type', sortingVale:"type"},
     {heading: 'Début', sortingVale:"startdate"},

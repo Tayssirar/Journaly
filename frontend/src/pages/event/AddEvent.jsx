@@ -23,7 +23,7 @@ const AddEvent = () => {
 
     const eventData = {
       title,
-      eventType: eventType.value,
+      eventType: eventType.label,
       startDate,
       endDate,
       details
