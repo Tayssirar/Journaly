@@ -5,7 +5,7 @@ const Inspector = require('../models/Inspector');
 // Get all inspectors
 router.get('/all', async (req, res) => {
   try {
-    const inspectors = await Inspector.find();
+    const inspectors = await Inspector.find().populate('schools');
     res.status(200).json(inspectors);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -15,14 +15,14 @@ router.get('/all', async (req, res) => {
 // Get an inspector by ID
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  
+
   try {
-    const inspector = await Inspector.findById(id);
-    
+    const inspector = await Inspector.findById(id).populate('schools');
+
     if (!inspector) {
       return res.status(404).json({ message: 'Inspector not found' });
     }
-    
+
     res.status(200).json(inspector);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -31,16 +31,19 @@ router.get('/:id', async (req, res) => {
 
 // Create a new inspector
 router.post('/add', async (req, res) => {
-  const { profile, name, region, sexe, mobile, email } = req.body;
+  const { firstName, lastName, region, birthDate, gender, phone, email, password, schools } = req.body;
 
   try {
     const newInspector = new Inspector({
-      profile,
-      name,
+      firstName,
+      lastName,
       region,
-      sexe,
-      mobile,
-      email
+      birthDate,
+      gender,
+      phone,
+      email,
+      password,
+      schools
     });
 
     const savedInspector = await newInspector.save();
@@ -53,16 +56,19 @@ router.post('/add', async (req, res) => {
 // Update an inspector
 router.put('/update/:id', async (req, res) => {
   const { id } = req.params;
-  const { profile, name, region, sexe, mobile, email } = req.body;
+  const { firstName, lastName, region, birthDate, gender, phone, email, password, schools } = req.body;
 
   try {
     const updatedInspector = await Inspector.findByIdAndUpdate(id, {
-      profile,
-      name,
+      firstName,
+      lastName,
       region,
-      sexe,
-      mobile,
-      email
+      birthDate,
+      gender,
+      phone,
+      email,
+      password,
+      schools
     }, { new: true });
 
     if (!updatedInspector) {
