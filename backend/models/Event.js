@@ -5,21 +5,22 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
+  eventType: {
     type: String,
     required: true
   },
-  date: {
+  startDate: {
     type: Date,
     required: true
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+  endDate: {
+    type: Date,
+    required: true
+  },
+  details: {
+    type: String,
     required: true
   }
-}, { timestamps: true });
+});
 
-const Event = mongoose.model('Event', eventSchema);
-
-module.exports = Event;
+module.exports = mongoose.model('Event', eventSchema);

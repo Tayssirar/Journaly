@@ -1,20 +1,32 @@
 const mongoose = require('mongoose');
 
 const schoolSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  director: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  }
-}, { timestamps: true });
+    name: {
+        type: String,
+        required: true
+    },
+    schoolType: {
+        type: String,
+        required: true
+    },
+    establishedDate: {
+        type: Date,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    }
+});
 
 const School = mongoose.model('School', schoolSchema);
 
