@@ -4,7 +4,7 @@ import StepOne from "../../components/Exam/ExamForm";
 import PageTitle from '../../components/PageTitle';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-
+                                                                
 const AddExam = () => {
     const [selectedOptions, setSelectedOptions] = useState({});
     const [date, setDate] = useState('');

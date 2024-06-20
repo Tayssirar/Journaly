@@ -9,6 +9,19 @@ import { DatePicker } from 'rsuite';
 import TimePickerPicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
+import axios from 'axios';
+
+const fetchJournalData = async (classe, module, journee) => {
+  try {
+    const response = await axios.get('/api/journal', {
+      params: { classe, module, journee }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching the journal data:", error);
+    return null;
+  }
+};
 
 const AddJournal = () => {
   const [classe, setClasse] = useState('');
@@ -92,7 +105,7 @@ const AddJournal = () => {
   };
 
   const handleClasseChange = (e) => {
-    setClasse(e.target.value);
+    setClasse(e.value);
   };
 
   const handleThemeChange = (e) => {
@@ -108,7 +121,7 @@ const AddJournal = () => {
   };
 
   const handleEducationAChange = (e) => {
-    setEducation_a(e.target.value);
+    setEducation_a(e.value);
   };
 
   const handleDateChange = (value) => {
@@ -118,17 +131,42 @@ const AddJournal = () => {
       setDate(value);
     }
   };
-  console.log("🚀 ~ handleDateChange ~ handleDateChange:", handleDateChange)
 
   const handleTimeChange1 = (value) => {
-    console.log("🚀 ~ handleTimeChange1 ~ handleTimeChange1:", handleTimeChange1)
-    onChange(value instanceof Date ? value.toLocaleTimeString() : value);
+    onChange(value);
   };
 
   const handleTimeChange2 = (value) => {
-    console.log("🚀 ~ handleTimeChange2 ~ handleTimeChange2:", handleTimeChange2)
-    onChange2(value instanceof Date ? value.toLocaleTimeString() : value);
+    onChange2(value);
   };
+
+  const fetchAndSetJournalData = async () => {
+    if (classe && subTheme && journee) {
+      const journalData = await fetchJournalData(classe, subTheme, journee);
+      if (journalData) {
+        const updatedSections = sections.map(section => {
+          const journalSection = journalData.sections.find(s => s.id === section.id);
+          if (journalSection) {
+            return {
+              ...section,
+              content: {
+                ...section.content,
+                contenu: journalSection.content.contenu,
+                Les_objectifs_spécifiques: journalSection.content.contenu,
+                Les_supports: journalSection.content.supports
+              }
+            };
+          }
+          return section;
+        });
+        setSections(updatedSections);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchAndSetJournalData();
+  }, [classe, subTheme, journee]);
 
   return (
     <>

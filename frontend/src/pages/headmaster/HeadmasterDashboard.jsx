@@ -12,7 +12,6 @@ function HeadmasterDashboard() {
   });
 
   useEffect(() => {
-    // Fetch data from the backend
     fetch('/api/headmaster-dashboard')
       .then(response => response.json())
       .then(data => {
@@ -49,20 +48,30 @@ function HeadmasterDashboard() {
         </Col>
       </Row>
       <Row>
-        {data.classes.map((classe, index) => (
-          <React.Fragment key={index}>
-            <Col xl={6} lg={6}>
-              <Card>
-                <CardHeader>
-                  <h3 className="card-title">{classe.className} - {classe.groupName}</h3>
-                </CardHeader>
-                <CardBody>
-                  <GroupPerformance group={classe.groupName} />
-                </CardBody>
-              </Card>
-            </Col>
-          </React.Fragment>
-        ))}
+        {Array.isArray(data.classes) && data.classes.length > 0 ? (
+          data.classes.map((classe, index) => (
+            <React.Fragment key={index}>
+              <Col xl={6} lg={6}>
+                <Card>
+                  <CardHeader>
+                    <h3 className="card-title">{classe.className} - {classe.groupName}</h3>
+                  </CardHeader>
+                  <CardBody>
+                    <GroupPerformance group={classe.groupName} />
+                  </CardBody>
+                </Card>
+              </Col>
+            </React.Fragment>
+          ))
+        ) : (
+          <Col>
+            <Card>
+              <CardBody>
+                <p>No classes available</p>
+              </CardBody>
+            </Card>
+          </Col>
+        )}
       </Row>
     </div>
   );

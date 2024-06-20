@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { loginAction } from '../../store/actions/AuthActions';
 import { Link, useNavigate } from 'react-router-dom';
-import logoFull from '../../assets/images/logo-full.png'
+import logoFull from '../../assets/images/logo-full.png';
 
 function Login(props) {
   const [email, setEmail] = useState('demo@example.com');
-    const [password, setPassword] = useState('123456');
-  
+  const [password, setPassword] = useState('123456');
   const [errors, setErrors] = useState({ email: '', password: '' });
 
   const dispatch = useDispatch();
@@ -34,8 +33,9 @@ function Login(props) {
       return;
     }
 
-    dispatch(loginAction(email, password, navigate, selectedRole));};
-    
+    dispatch(loginAction(email, password, navigate, selectedRole));
+  };
+
   return (
     <div className="fix-wrapper">
       <div className="container">
@@ -43,7 +43,7 @@ function Login(props) {
           <div className="col-lg-5 col-md-6">
             <div className="card mb-0 h-auto">
               <div className="card-body">
-              <div className="text-center mb-4">
+                <div className="text-center mb-4">
                   <Link to={"/"}>
                     <img src={logoFull} alt='logo journaly'/>
                   </Link>

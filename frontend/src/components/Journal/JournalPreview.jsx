@@ -4,7 +4,7 @@ import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import ZoomButton from '../ZoomButton';
 import ReactToPrint from 'react-to-print';
 
-const JournalPreview = React.forwardRef(({ previewData, date, time1, time2, classe, theme, subTheme, education_a, journee }, ref) => {
+const JournalPreview = React.forwardRef(({ previewData, date, time1, time2, classe,  subTheme, education_a, journee }, ref) => {
   const [zoom, setZoom] = useState(1);
   const componentRef = React.useRef();
 
@@ -41,11 +41,7 @@ const JournalPreview = React.forwardRef(({ previewData, date, time1, time2, clas
                           <th rowSpan={3}>Éducation à: {education_a}</th>
                         </tr>
                         <tr>
-                          <th>Unité: {theme}</th>
-                          <th colSpan='3'>Thème: {theme}</th>
-                        </tr>
-                        <tr>
-                          <th colSpan='2'>Module: {subTheme} Journée: {journee}</th>
+                          <th colSpan='2'>Journée: {journee}</th>
                           <th colSpan='3'>Sous-thème: {subTheme}</th>
                         </tr>
                       </thead>

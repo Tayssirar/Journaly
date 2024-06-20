@@ -4,7 +4,7 @@
     "nom": "Vive l’école !",
     "journées": [
       {
-        "orale": {
+        "Mise en train": {
           "activités": [
             {
               "type": "Mise en train",
@@ -214,7 +214,7 @@
     "nom": "Bienvenue chez les Duval !",
     "journées": [
       {
-        "orale": {
+        "Mise en train": {
           "activités": [
             {
               "type": "Mise en train",
@@ -423,7 +423,7 @@
     "nom": "Sois mon ami !",
     "journées": [
       {
-        "orale": {
+        "Mise en train": {
           "activités": [
             {
               "type": "Mise en train",
@@ -633,7 +633,7 @@
     "nom": "Tends-moi la main !",
     "journées": [
       {
-        "orale": {
+        "Mise en train": {
           "activités": [
             {
               "type": "Mise en train",
@@ -842,7 +842,7 @@
     "nom": "Un cœur qui bat",
     "journées": [
       {
-        "orale": {
+        "Mise en train": {
           "activités": [
             {
               "type": "Mise en train",
@@ -1051,7 +1051,7 @@
     "nom": "Bon appétit !",
     "journées": [
       {
-        "orale": {
+        "Mise en train": {
           "activités": [
             {
               "type": "Mise en train",
@@ -1264,7 +1264,7 @@
     "nom": "Amusons-nous !",
     "journées": [
       {
-        "orale": {
+        "Mise en train": {
           "activités": [
             {
               "type": "Mise en train",

@@ -106,6 +106,7 @@ function AllPlan() {
                                     <td>{data.creationDate}</td>                                                                                                                                                  
                                     <td>{data.updateDate}</td>
                                     <td>{data.status}</td>
+                                    
                                     <td>
                                       <Link to={"/UpdatePlan"} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
                                       <Link to={"/DeletePlan"} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>

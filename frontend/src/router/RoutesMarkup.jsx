@@ -108,42 +108,42 @@ const RoutesMarkup = () => {
     //Teacher
     { url: "/AllTeachers", component: AllTeachers },
     { url: "/AddTeacher", component: AddTeacher },
-    { url: "/UpdateTeacher", component: UpdateTeacher },
+    { url: "/UpdateTeacher/:id", component: UpdateTeacher },
     { url: "/TeacherProfile", component:  TeacherProfile },
     { url: "/UpdateTeacherProfile", component: UpdateTeacherProfile },
     {url:"/DeleteTeacher", component:DeleteTeacher },
     //Headmaster
     { url: "/AllHeadmasters", component: AllHeadmasters },
     { url: "/AddHeadmaster", component: AddHeadmaster },
-    { url: "/UpdateHeadmaster", component: UpdateHeadmaster },
+    { url: "/UpdateHeadmaster/:id", component: UpdateHeadmaster },
     { url: "/HeadmasterProfile", component:  HeadmasterProfile },
     { url: "/UpdateHeadmasterProfile", component: UpdateHeadmasterProfile },
     {url:"/DeleteHeadmaster", component:DeleteHeadmaster },
     //Inspector
     { url: "/AllInspectors", component: AllInspectors },
     { url: "/AddInspector", component: AddInspector },
-    { url: "/UpdateInspector", component: UpdateInspector },
+    { url: "/UpdateInspector/:id", component: UpdateInspector },
     { url: "/InspectorProfile", component:  InspectorProfile },
     { url: "/UpdateInspectorProfile", component: UpdateInspectorProfile },
     {url:"/DeleteInspector", component:DeleteInspector },
     //Student
     { url: "/AllStudents", component: AllStudents },
     { url: "/AddStudent", component: AddStudent },
-    { url: "/UpdateStudent", component: UpdateStudent },
+    { url: "/UpdateStudent/:id", component: UpdateStudent },
     { url: "/StudentProfile", component:  StudentProfile },
     {url:"/Delete", component:DeleteRapport },
     {url:"/StudentPerformance", component: StudentPerformance},
     //Assistant
     { url: "/AllAssistants", component: AllAssistants },
     { url: "/AddAssistant", component: AddAssistant },
-    { url: "/UpdateAssistant", component: UpdateAssistant },
+    { url: "/UpdateAssistant/:id", component: UpdateAssistant },
     { url: "/AssistantProfile", component:  AssistantProfile },
     { url: "/UpdateAssistantProfile", component: UpdateAssistantProfile },
     {url:"/DeleteAssistant", component:DeleteAssistant },
     //School
     { url: "/AllSchools", component: AllSchools },
     { url: "/AddSchool", component: AddSchool },
-    { url: "/UpdateSchool", component: UpdateSchool },
+    { url: "/UpdateSchool/:id", component: UpdateSchool },
     { url: "/SchoolProfile", component:  SchoolProfile },
     {url:"/Delete", component:DeleteRapport },
     //Planification
@@ -159,8 +159,7 @@ const RoutesMarkup = () => {
     //Event
     {url: "/AllEvents", component: AllEvents},
     {url: "/AddEvent", component: AddEvent},
-    {url: "/UpdateEvent", component: UpdateEvent},
-    {url:"/Delete", component:DeleteRapport },
+    {url: "/UpdateEvent/:id", component: UpdateEvent},
     //Calendar
     {url:"/Calendar", component: Calendar},
     //Note
@@ -189,7 +188,7 @@ const RoutesMarkup = () => {
     {url: "/AllRapport", component: AllRapports},
     {url:"/AddRapport", component: AddRapportVisite},
     {url:"/DeleteRapport", component:DeleteRapport },
-    {url:"/UpdateRapport", component: UpdateRapport},
+    {url:"/UpdateRapport/:id", component: UpdateRapport},
 
   ];
 

@@ -59,7 +59,6 @@ const lifeSkillOptions=[
     {value:'3', label:'La résilience'},
     {value:'4', label:'La pensée critique'},
     {value:'5', label:'la résolution de problème'},
-    {value:'6', label:'la '},
 ]
 const EventTypeOptions = [
     { value: '1', label: 'Journée pédagogique' },
