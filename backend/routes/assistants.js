@@ -31,16 +31,19 @@ router.get('/:id', async (req, res) => {
 
 // Create a new assistant
 router.post('/add', async (req, res) => {
-  const { profile, name, region, sexe, mobile, email } = req.body;
+  const { firstName, lastName, region, birthDate, gender, phone, email, password, schools } = req.body;
 
   try {
     const newAssistant = new Assistant({
-      profile,
-      name,
+      firstName,
+      lastName,
       region,
-      sexe,
-      mobile,
-      email
+      birthDate,
+      gender,
+      phone,
+      email,
+      password,
+      schools
     });
 
     const savedAssistant = await newAssistant.save();
@@ -53,16 +56,19 @@ router.post('/add', async (req, res) => {
 // Update an assistant
 router.put('/update/:id', async (req, res) => {
   const { id } = req.params;
-  const { profile, name, region, sexe, mobile, email } = req.body;
+  const { firstName, lastName, region, birthDate, gender, phone, email, password, schools } = req.body;
 
   try {
     const updatedAssistant = await Assistant.findByIdAndUpdate(id, {
-      profile,
-      name,
+      firstName,
+      lastName,
       region,
-      sexe,
-      mobile,
-      email
+      birthDate,
+      gender,
+      phone,
+      email,
+      password,
+      schools
     }, { new: true });
 
     if (!updatedAssistant) {

@@ -15,6 +15,8 @@ const rapportsRouter = require('./routes/rapports');
 const notesRouter = require('./routes/notes');
 const errorsRouter = require('./routes/Errors');
 const examsRouter = require('./routes/exams');
+const modulesRouter = require('./routes/modules');
+
 require('dotenv').config();
 
 const app = express();
@@ -37,6 +39,7 @@ app.use('/api/rapports', rapportsRouter);
 app.use('/api/notes', notesRouter);
 app.use('/api/errors', errorsRouter);
 app.use('/api/exams', examsRouter);
+app.use('/api/modules', modulesRouter);
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,

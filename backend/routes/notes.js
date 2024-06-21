@@ -25,13 +25,11 @@ router.get('/:id', async (req, res) => {
 
 // POST /api/notes
 router.post('/', async (req, res) => {
-  const { classe, groupe, evaluationType, noteType, student, recitation, oral, lecture, ecrit, total } = req.body;
+  const { classe, evaluationType, student, recitation, oral, lecture, ecrit, total } = req.body;
 
   const newNote = new Note({
     classe,
-    groupe,
     evaluationType,
-    noteType,
     student,
     recitation,
     oral,

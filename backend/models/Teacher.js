@@ -7,7 +7,6 @@ const teacherSchema = new mongoose.Schema({
   genre: { type: String, required: true },
   region: { type: String, required: true },
   diplome: { type: String, required: true },
-  niveaux: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   telephone: { type: String, required: true },
   dateNomination: { type: Date, required: true },

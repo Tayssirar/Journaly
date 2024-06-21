@@ -18,6 +18,7 @@ const PlanSchema = new mongoose.Schema({
   subTheme: { type: String, required: true },
   education_a: { type: String, required: true },
   journées: { type: Map, of: JourneeSchema },
+  status: { type: String, enum: ['public', 'private'], default: 'private' },
 });
 
 module.exports = mongoose.model('Plan', PlanSchema);

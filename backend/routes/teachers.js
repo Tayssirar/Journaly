@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Teacher = require('../models/Teacher');
 
-// Get all teachers
+// Récupérer tous les enseignants
 router.get('/', async (req, res) => {
   try {
     const teachers = await Teacher.find().populate('school').populate('classes');
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get a single teacher by ID
+// Récupérer un enseignant par ID
 router.get('/:id', async (req, res) => {
   try {
     const teacher = await Teacher.findById(req.params.id).populate('school').populate('classes');
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Add a new teacher
+// Ajouter un nouvel enseignant
 router.post('/', async (req, res) => {
   try {
     const teacher = new Teacher(req.body);
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Update a teacher
+// Mettre à jour un enseignant
 router.put('/:id', async (req, res) => {
   try {
     const teacher = await Teacher.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete a teacher
+// Supprimer un enseignant
 router.delete('/:id', async (req, res) => {
   try {
     const teacher = await Teacher.findByIdAndDelete(req.params.id);

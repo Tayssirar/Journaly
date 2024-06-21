@@ -25,12 +25,13 @@ router.get('/:id', async (req, res) => {
 
 // POST /api/plans
 router.post('/', async (req, res) => {
-  const { classe, subTheme, education_a, journées } = req.body;
+  const { classe, subTheme, education_a, status, journées } = req.body;
 
   const newPlan = new Plan({
     classe,
     subTheme,
     education_a,
+    status,
     journées
   });
 
@@ -61,6 +62,23 @@ router.delete('/:id', async (req, res) => {
     res.json({ message: 'Plan deleted' });
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+});
+
+// Get a plan by classe, subTheme, and journee
+router.get('/:classe/:subTheme/:journee', async (req, res) => {
+  const { classe, subTheme, journées } = req.params;
+  
+  try {
+    const plan = await Plan.findOne({ classe, subTheme, journées: { $exists: true } }).lean();
+    
+    if (!plan) {
+      return res.status(404).json({ message: 'Plan not found' });
+    }
+    
+    res.status(200).json(plan);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 

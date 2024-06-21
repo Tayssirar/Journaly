@@ -21,18 +21,14 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  class: {
+  classe: {
     type: String,
     required: true
-  },
-  group: {
-    type: String,
-    required: false
   },
   school: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'School',
-    required: true
+    required: false
   }
 });
 

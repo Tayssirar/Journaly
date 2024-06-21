@@ -12,14 +12,12 @@ const CriterionSchema = new mongoose.Schema({
 
 const NoteSchema = new mongoose.Schema({
   classe: { type: String, required: true },
-  groupe: { type: String, required: true },
   evaluationType: { type: String, required: true },
-  noteType: { type: String, required: true },
   student: { type: String, required: true },
-  recitation: { type: CriterionSchema, required: true },
-  oral: { type: CriterionSchema, required: true },
-  lecture: { type: CriterionSchema, required: true },
-  ecrit: { type: CriterionSchema, required: true },
+  recitation: { type: CriterionSchema },
+  oral: { type: CriterionSchema},
+  lecture: { type: CriterionSchema },
+  ecrit: { type: CriterionSchema },
   total: { type: Number }
 });
 

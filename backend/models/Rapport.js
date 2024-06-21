@@ -31,6 +31,7 @@ const RapportSchema = new mongoose.Schema({
   journeePalierChecked: { type: Boolean },
   evaluationChecked: { type: Boolean },
   remediationChecked: { type: Boolean },
+  status: { type: String, enum: ['public', 'private'], default: 'private' } // Ajout du champ status
 });
 
 module.exports = mongoose.model('Rapport', RapportSchema);
