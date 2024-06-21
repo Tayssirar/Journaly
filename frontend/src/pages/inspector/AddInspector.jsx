@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PageTitle from '../../components/PageTitle';
-import InspectorForm from '../../components/InspectorForm';
+import Form from '../../components/userAIHForm';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -40,7 +40,7 @@ function AddInspector() {
                           <h5 className="card-title">Les informations d'un inspecteur</h5>
                       </div>
                       <div className='card-body'>
-                          <InspectorForm 
+                          <Form 
                               mode="add" 
                               onSubmit={handleSubmit} 
                               schoolOptions={schoolOptions} 

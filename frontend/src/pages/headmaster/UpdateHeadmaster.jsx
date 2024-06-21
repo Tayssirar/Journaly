@@ -1,14 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PageTitle from '../../components/PageTitle'
-import HeadmasterForm from '../../components/HeadmasterForm';
+import Form from '../../components/userAIHForm';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+
 
 function UpdateHeadmaster() {
-  const initialValues = {}; // Fetch initial values for updating Headmaster
+  const { id } = useParams();
+  const [initialValues, setInitialValues] = useState(null);
+  const navigate = useNavigate();
 
-    const handleSubmit = (formData) => {
-        // Handle form submission for updating Headmaster
-        console.log(formData);
+  useEffect(() => {
+    const fetchHeadmaster = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/headmasters/${id}`);
+        setInitialValues(response.data);
+      } catch (error) {
+        console.error('Error fetching headmaster data:', error);
+      }
     };
+
+    fetchHeadmaster();
+  }, [id]);
+
+  const handleSubmit = async (formData) => {
+    try {
+      await axios.put(`http://localhost:5000/api/headmasters/update/${id}`, formData);
+      navigate('/AllHeadmasters');
+    } catch (error) {
+      console.error('Error updating headmaster:', error);
+    }
+  };
+
+  if (!initialValues) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
       <PageTitle activeMenu={"Modifier un directeur"} motherMenu={"Directeur"}/>
@@ -19,7 +46,7 @@ function UpdateHeadmaster() {
               <h5 className="card-title">Les informations du directeur</h5>
             </div>
             <div className='card-body'>
-            <HeadmasterForm mode="update" initialValues={initialValues} onSubmit={handleSubmit} />
+            <Form mode="update" initialValues={initialValues} onSubmit={handleSubmit} />
             </div>
           </div>
         </div>

@@ -60,10 +60,10 @@ const AllStudents = () => {
                       <td>{new Date(student.birthDate).toLocaleDateString()}</td>
                       <td>{student.gender}</td>
                       <td>{student.region}</td>
-                      <td>{student.class}</td>
+                      <td>{student.classe}</td>
                       <td>
                         <Link to={`/UpdateStudent/${student._id}`} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
-                        <Button onClick={() => handleDelete(student._id)} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Button>
+                        <Link onClick={() => handleDelete(student._id)} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
                       </td>
                     </tr>
                   ))}

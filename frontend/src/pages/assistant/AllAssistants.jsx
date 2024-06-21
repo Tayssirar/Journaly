@@ -1,58 +1,57 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageTitle from '../../components/PageTitle';
 import { Dropdown, Row, Tab, TabContainer } from 'react-bootstrap';
 import ListGridView from '../../components/ListGridView';
 import { Link } from 'react-router-dom';
 import { theadAssistantData } from '../../data/TheadData';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 function AllAssistants() {
   const [assistants, setAssistants] = useState([]);
   const [sort, setSortData] = useState(10);
   const [activePage, setActivePage] = useState(0);
-  const [pagination, setPagination] = useState([]);
-  
+  const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchInspectors = async () => {
       try {
-        const response = await axios.get('/api/admin/users'); // Replace with your API endpoint
-        setAssistants(response.data); 
-        calculatePagination(response.data.length);
+        const response = await axios.get('http://localhost:5000/api/assistants/all');
+        setAssistants(response.data);
       } catch (error) {
-        console.error('Error fetching assistants:', error);
+        console.error('Error fetching assistants data:', error);
       }
     };
 
-    fetchData();
-  }, []); 
+    fetchInspectors();
+  }, []);
 
-  // Function to calculate pagination
-  const calculatePagination = (dataLength) => {
-    const pages = Math.ceil(dataLength / sort);
-    setPagination(Array(pages).fill().map((_, i) => i + 1));
+  const filteredInspectors = assistants.filter((assistant) => {
+    const selectData = `${assistant.firstName} ${assistant.lastName} ${assistant.region} ${assistant.gender} ${assistant.phone} ${assistant.schools.map(school => school.name).join(' ')} ${assistant.email}`.toLowerCase();
+    return selectData.includes(searchQuery.toLowerCase());
+  });
+
+  const paginatedAssistants = filteredInspectors.slice(activePage * sort, (activePage + 1) * sort);
+
+  const pagination = Array(Math.ceil(filteredInspectors.length / sort))
+    .fill()
+    .map((_, i) => i + 1);
+
+  const onClick = (i) => {
+    setActivePage(i);
   };
 
-  // Function to handle sorting
-  const handleSortChange = (value) => {
-    setSortData(value);
-    calculatePagination(assistants.length);
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    setActivePage(0); // Reset to first page on search
   };
 
-  // Function to handle pagination click
-  const handlePageClick = (page) => {
-    setActivePage(page);
-  };
-
-  // Function for searching data
-  const searchData = (e) => {
-    const updatedData = assistants.filter((item) =>
-      `${item.nom} ${item.region} ${item.sexe} ${item.mobile} ${item.email}`
-        .toLowerCase()
-        .includes(e.target.value.toLowerCase())
-    );
-    setAssistants([...updatedData]);
-    setActivePage(0);
-    calculatePagination(updatedData.length);
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/assistants/${id}`);
+      setAssistants(assistants.filter(assistant => assistant._id !== id));
+    } catch (error) {
+      console.error('Error deleting assistant:', error);
+    }
   };
 
   return (
@@ -66,7 +65,7 @@ function AllAssistants() {
               <Tab.Pane eventKey="List" className="col-lg-12">
                 <div className="card">
                   <div className="card-header">
-                    <h4 className="card-title">Tous les assistants </h4>
+                    <h4 className="card-title">Tous les assistants</h4>
                     <Link to={"/AddAssistant"} className="btn btn-primary">+ Ajouter Un Nouveau</Link>
                   </div>
                   <div className="card-body">
@@ -81,9 +80,9 @@ function AllAssistants() {
                                   {sort}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                  <Dropdown.Item onClick={() => handleSortChange(10)}>10</Dropdown.Item>
-                                  <Dropdown.Item onClick={() => handleSortChange(20)}>20</Dropdown.Item>
-                                  <Dropdown.Item onClick={() => handleSortChange(30)}>30</Dropdown.Item>
+                                  <Dropdown.Item onClick={() => setSortData(10)}>10</Dropdown.Item>
+                                  <Dropdown.Item onClick={() => setSortData(20)}>20</Dropdown.Item>
+                                  <Dropdown.Item onClick={() => setSortData(30)}>30</Dropdown.Item>
                                 </Dropdown.Menu>
                               </Dropdown>
                               entrées
@@ -92,7 +91,7 @@ function AllAssistants() {
                           <div className="dataTables_filter">
                             <label>
                               Chercher:{' '}
-                              <input type="search" className="" placeholder="" onChange={searchData} />
+                              <input type="search" className="" placeholder="" onChange={handleSearchChange} />
                             </label>
                           </div>
                         </div>
@@ -105,27 +104,23 @@ function AllAssistants() {
                             </tr>
                           </thead>
                           <tbody>
-                            {assistants
-                              .slice(activePage * sort, (activePage + 1) * sort)
-                              .map((data, ind) => (
-                                <tr key={ind}>
+                          {paginatedAssistants.map((assistant, ind) => (
+                              <tr key={ind}>
+                                <td><img className="rounded-circle" width="35" src={assistant.profile} alt="" /> </td>
+                                <td>{assistant.firstName} {assistant.lastName}</td>
+                                <td>{assistant.region}</td>
+                                <td>{assistant.gender}</td>
+                                <td>{new Date(assistant.birthDate).toLocaleDateString()}</td>
+                                <td>{assistant.schools.map(school => school.name).join(', ')}</td>
+                                <td>{assistant.phone}</td>
+                                <td>{assistant.email}</td>
                                   <td>
-                                    <img className="rounded-circle" width="35" src={data.profile} alt="" />
-                                  </td>
-                                  <td>{data.nom}</td>
-                                  <td>{data.region}</td>
-                                  <td>{data.sexe}</td>
-                                  <td>{data.diplome}</td>
-                                  <td>{data.nomination}</td>
-                                  <td>{data.mobile}</td>
-                                  <td>{data.email}</td>
-                                  <td>
-                                    <Link to={"/UpdateAssistant"} className="btn btn-xs sharp btn-primary me-1">
+                                    <Link to={`/UpdateAssistant/${assistant._id}`} className="btn btn-xs sharp btn-primary me-1">
                                       <i className="fa fa-pencil" />
                                     </Link>
-                                    <Link to={"/DeleteAssistant"} className="btn btn-xs sharp btn-danger">
+                                    <button onClick={() => handleDelete(assistant._id)} className="btn btn-xs sharp btn-danger">
                                       <i className="fa fa-trash" />
-                                    </Link>
+                                    </button>
                                   </td>
                                 </tr>
                               ))}
@@ -155,25 +150,20 @@ function AllAssistants() {
                               {pagination.map((number, i) => (
                                 <Link
                                   key={i}
-                                  to="#"
-                                  className={`paginate_button ${
-                                    activePage === i ? 'current' : ''
-                                  }`}
-                                  onClick={() => handlePageClick(i)}
+                                  to='#'
+                                  className={`paginate_button  ${activePage === i ? 'current' : ''}`}
+                                  onClick={() => onClick(i)}
                                 >
                                   {number}
                                 </Link>
                               ))}
                             </span>
                             <Link
-                              className={`paginate_button next ${
-                                activePage === pagination.length - 1 ? 'disabled' : ''
-                              }`}
-                              to="#"
+                              className='paginate_button next'
+                              to='#'
                               onClick={() =>
-                                setActivePage((prev) =>
-                                  Math.min(prev + 1, pagination.length - 1)
-                                )
+                                activePage + 1 < pagination.length &&
+                                onClick(activePage + 1)
                               }
                             >
                               Suivant
@@ -204,15 +194,15 @@ function AllAssistants() {
                               className="dropdown-menu dropdown-menu-right border py-0"
                             >
                               <div className="py-2">
-                                <Link to={"/UpdateAssistant"} className="dropdown-item">
+                                <Link to={`/UpdateAssistant/${assistant._id}`} className="dropdown-item">
                                   Modifier
                                 </Link>
-                                <Link
-                                  to={"/DeleteAssistant"}
+                                <button
+                                  onClick={() => handleDelete(assistant._id)}
                                   className="dropdown-item text-danger"
                                 >
                                   Supprimer
-                                </Link>
+                                </button>
                               </div>
                             </Dropdown.Menu>
                           </Dropdown>
@@ -239,7 +229,7 @@ function AllAssistants() {
                               ))}
                             </ul>
                             <Link
-                              to={"/AssistantProfile"}
+                              to={`/AssistantProfile/${assistant._id}`}
                               className="btn btn-outline-primary btn-rounded mt-3 px-4"
                             >
                               Afficher Profil
@@ -260,4 +250,3 @@ function AllAssistants() {
 }
 
 export default AllAssistants;
-

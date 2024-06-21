@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PageTitle from '../../components/PageTitle'
-import InspectorForm from '../../components/InspectorForm'
+import InspectorForm from '../../components/userAIHForm'
 import { Card, CardBody, CardHeader } from 'react-bootstrap';
 
 function UpdateInspectorProfile() {

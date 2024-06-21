@@ -62,6 +62,7 @@ import  SchoolProfile from '../pages/school/SchoolProfile';
 //Planification
 import AllPlan from '../pages/planification/AllPlan';
 import AddPlan from '../pages/planification/AddPlan';
+import UpdatePlan from '../pages/planification/UpdatePlan';
 //Journal
 import AddJournal from '../pages/Journal/AddJournal';
 import AllJournal from '../pages/Journal/AllJournal';
@@ -150,7 +151,7 @@ const RoutesMarkup = () => {
     { url: "/AllPlan", component: AllPlan},
     {url: "/AddPlan", component: AddPlan},
     {url:"/Delete", component:DeleteRapport },
-    {url:"/Update", component: UpdateRapport},
+    {url:"/UpdatePlan/:id", component: UpdatePlan},
     //Journal
     {url: "/AddJournal", component: AddJournal},
     {url: "/AllJournal", component: AllJournal},

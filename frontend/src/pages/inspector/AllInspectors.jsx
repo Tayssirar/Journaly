@@ -44,7 +44,14 @@ function AllInspectors() {
     setSearchQuery(e.target.value);
     setActivePage(0); // Reset to first page on search
   };
-
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/inspectors/${id}`);
+      setInspectors(inspectors.filter(inspector => inspector._id !== id));
+    } catch (error) {
+      console.error('Error deleting inspectors:', error);
+    }
+  };
   return (
     <div>
       <PageTitle activeMenu={"Tous les inspecteurs"} motherMenu={"Inspecteurs"} />
@@ -111,7 +118,7 @@ function AllInspectors() {
                                 <td>{inspector.email}</td>
                                 <td>
                                   <Link to={`/UpdateInspector/${inspector._id}`} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
-                                  <Link to={`/DeleteInspector/${inspector._id}`} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
+                                  <Link onClick={() => handleDelete(inspector._id)} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
                                 </td>
                               </tr>
                             ))}
@@ -180,7 +187,7 @@ function AllInspectors() {
                             <Dropdown.Menu align="end" className="dropdown-menu dropdown-menu-right border py-0">
                               <div className="py-2">
                                 <Link to={`/UpdateInspector/${inspector._id}`} className="dropdown-item">Modifier</Link>
-                                <Link to={`/DeleteInspector/${inspector._id}`} className="dropdown-item text-danger">Supprimer</Link>
+                                <Link onClick={() => handleDelete(inspector._id)} className="dropdown-item text-danger">Supprimer</Link>
                               </div>
                             </Dropdown.Menu>
                           </Dropdown>

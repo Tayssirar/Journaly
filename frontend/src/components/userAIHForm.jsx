@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { DatePicker } from 'rsuite';
 import { GenreOption, RegionOption } from '../data/OptionData';
 
-function InspectorForm({ mode, initialValues, onSubmit, schoolOptions = [] }) {
+function Form({ mode, initialValues, onSubmit, schoolOptions = [] }) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [birthDate, setBirthDate] = useState(null);
@@ -151,7 +151,7 @@ function InspectorForm({ mode, initialValues, onSubmit, schoolOptions = [] }) {
                                     </div>
                                 ))}
                                 <div className="form-label">
-                                    Les écoles à inspecter: {checkedSchoolOptions.join(', ')}
+                                    Les écoles à superviser: {checkedSchoolOptions.join(', ')}
                                 </div>
                             </div>
                         </div>
@@ -201,4 +201,4 @@ function InspectorForm({ mode, initialValues, onSubmit, schoolOptions = [] }) {
     );
 }
 
-export default InspectorForm;
+export default Form;

@@ -1,7 +1,6 @@
 
 
   const theadTeacherData = [
-    { heading: 'Profil', sortingValue: 'profile', value: '' },
     { heading: 'Nom', sortingValue: 'name', value: '' },
     { heading: 'Région', sortingValue: 'region', value: '' },
     { heading: 'Sexe', sortingValue: 'sexe', value: '' },
@@ -40,13 +39,15 @@ const theadInspectorData = [
 ];
 
 const theadAssistantData = [
-    { heading: 'Profil', sortingValue: 'profile', value: '' },
-    { heading: 'Nom', sortingValue: 'name', value: '' },
-    { heading: 'Région', sortingValue: 'region', value: '' },
-    { heading: 'Sexe', sortingValue: 'sexe', value: '' },
-    { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
-    { heading: 'Email', sortingValue: 'email', value: '' },
-    { heading: 'Action',  value: '' },
+  { heading: 'Profil', sortingValue: 'profile', value: '' },
+  { heading: 'Nom', sortingValue: 'name', value: '' },
+  { heading: 'Région', sortingValue: 'region', value: '' },
+  { heading: 'Sexe', sortingValue: 'sexe', value: '' },
+  { heading: 'Date de naissance', sortingValue: 'birthdate', value: '' },
+  { heading: 'École', sortingValue: 'ecole', value: '' },
+  { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
+  { heading: 'Email', sortingValue: 'email', value: '' },
+  { heading: 'Action',  value: '' },
 ];
 
 const theadSchoolData = [
@@ -55,7 +56,6 @@ const theadSchoolData = [
     { heading: 'Numéro de téléphone', sortingValue: 'mobile', value: '' },
     { heading: 'Email', sortingValue: 'email', value: '' },
     { heading: 'Action',  value: '' },
-
 
 ];
 
@@ -100,12 +100,8 @@ const theadJournalViewData = [
   { heading: 'Action', value: '' },
 ];
 const theadPlanData = [
-  { heading: 'Num', value: '' },
   { heading: 'Classe',  value: '' },
-  { heading: 'Unité', value: '' },
   { heading: 'Module',value: '' },
-  { heading: 'Date de création', value: '' },
-  { heading: 'Date de modification', value: '' },
   { heading: 'Status', value: '' },
   { heading: 'Action', value: '' },
 ];

@@ -66,12 +66,12 @@ const AllHeadmasters = () => {
                                             <td>{headmaster.phone}</td>
                                             <td>{headmaster.email}</td>
                                             <td>
-                                                <Link to={`/UpdateHeadmaster/${headmaster._id}`} className="btn btn-xs btn-primary">Modifier</Link>
-                                                <Button onClick={() => handleDelete(headmaster._id)} className="btn btn-xs btn-danger">Supprimer</Button>
+                                                <Link to={`/UpdateHeadmaster/${headmaster._id}`} className="btn btn-xs sharp btn-primary me-1"><i className="fa fa-pencil" /></Link>
+                                                <Link onClick={() => handleDelete(headmaster._id)} className="btn btn-xs sharp btn-danger"><i className="fa fa-trash" /></Link>
                                             </td>
                                         </tr>
                                     ))}
-                                </tbody>
+                                </tbody> 
                             </Table>
                         </CardBody>
                     </Card>

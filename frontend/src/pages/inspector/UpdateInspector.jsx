@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PageTitle from '../../components/PageTitle';
-import InspectorForm from '../../components/InspectorForm';
+import Form from '../../components/userAIHForm';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -45,7 +45,7 @@ function UpdateInspector() {
               <h5 className="card-title">Les informations d'un inspecteur</h5>
             </div>
             <div className='card-body'>
-              <InspectorForm mode="update" initialValues={initialValues} onSubmit={handleSubmit} />
+              <Form mode="update" initialValues={initialValues} onSubmit={handleSubmit} />
             </div>
           </div>
         </div>

@@ -5,20 +5,11 @@ import axios from 'axios';
 import { ClasseOption, education_a_Option, lifeSkillOptions } from '../../data/OptionData';
 import { Card, CardBody, Button, Table, Modal } from 'react-bootstrap';
 import ReactToPrint from 'react-to-print';
+import { useParams } from 'react-router';
 
-const fetchPlanData = async (subTheme) => {
-    try {
-        const response = await axios.get('http://localhost:5000/api/modules/');
-        const modules = response.data;
-        const selectedModule = modules.find(module => module.nom === subTheme);
-        return selectedModule || null;
-    } catch (error) {
-        console.error("Error fetching the plan data:", error);
-        return null;
-    }
-};
 
-const AddPlan = () => {
+
+const UpdatePlan = () => {
     const [classe, setClasse] = useState('');
     const [subTheme, setSubTheme] = useState('');
     const [education_a, setEducation_a] = useState('');
@@ -27,16 +18,20 @@ const AddPlan = () => {
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
     const componentRef = useRef();
+    const { id } = useParams();
+
 
     useEffect(() => {
-        if (subTheme) {
-            fetchPlanData(subTheme).then((data) => {
-                if (data) {
-                    setPlanData(data);
-                }
-            });
-        }
-    }, [subTheme]);
+        const fetchPlans = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/plans/${id}`);
+                setPlanData(response.data);
+            } catch (error) {
+                console.error('Error fetching plans:', error);
+            }
+        };
+        fetchPlans();
+    }, []);
 
     const handleClasseChange = (selectedOption) => {
         setClasse(selectedOption.value);
@@ -278,4 +273,4 @@ const AddPlan = () => {
     );
 };
 
-export default AddPlan;
+export default UpdatePlan;

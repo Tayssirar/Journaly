@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PageTitle from '../../components/PageTitle'
-import AssistantForm from '../../components/AssistantForm'
+import AssistantForm from '../../components/userAIHForm'
 import { Card, CardBody, CardHeader } from 'react-bootstrap';
 
 function UpdateAssistantProfile() {

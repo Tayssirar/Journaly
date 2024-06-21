@@ -114,8 +114,8 @@ export const MenuList = {
             to: "AllStudents",
           },
           {
-            title: "Modifier un élève",
-            to: "UpdateStudent",
+            title: "Ajouter un élève",
+            to: "AddStudent",
           },
           {
             title: "Performance des élèves",  // New item
@@ -123,7 +123,7 @@ export const MenuList = {
           },
         ],
       },
-      {
+{  /*    {
         title: "Programmes officiels",
         classsChange: "mm-collapse",
         iconStyle: <i class="las la-book-reader"></i>,
@@ -137,7 +137,7 @@ export const MenuList = {
             to: "AddProgram",
           },
         ],
-      }
+      }*/}
     ],
 
     headmaster:[
@@ -194,10 +194,6 @@ export const MenuList = {
             title: "Voir mon école",
             to: "SchoolProfile",
           },
-          {
-            title: "Modifier mon école",
-            to: "UpdateSchoolProfile",
-          },
         ],
       },
       {
@@ -225,8 +221,8 @@ export const MenuList = {
             to: "AllStudents",
           },
           {
-            title: "Modifier un élève",
-            to: "UpdateStudent",
+            title: "Ajouter un élève",
+            to: "AddStudent",
           },
           {
             title: "Performance des élèves",  // New item

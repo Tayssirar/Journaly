@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageTitle from '../../components/PageTitle';
-import {Button, Card, CardBody, CardHeader, Form, Nav, OverlayTrigger, Row,TabContainer, TabContent, TabPane, Table, Tooltip } from 'react-bootstrap';
+import { Button, Card, CardBody, CardHeader, Form, Nav, OverlayTrigger, Row, TabContainer, TabContent, TabPane, Table, Tooltip } from 'react-bootstrap';
 import Select from 'react-select';
-import { ClasseOption, EvaluationTypeOption, NoteOption } from '../../data/OptionData';
+import axios from 'axios';
+import { ClasseOption, EvaluationTypeOption } from '../../data/OptionData';
 import { EcritCritere, LectureCritere, OralCritere, RecitationCritere } from '../../data/TheadData';
 
 function AddNote() {
-  const [classe, setClasse] = useState([]);
-  const [groupeOption, setGroupeOption] = useState([]);
-  const [evaTypeOption, setEvaTypeOption] = useState([]);
-  const [noteOption, setNoteOption] = useState([]);
-  const [student, setStudent] = useState([
-    { name: 'John Doe' },
-    { name: 'Jane Smith' },
-    { name: 'Bob Johnson' },
-    { name: 'Alice Williams' },
-  ]);
+  const [classe, setClasse] = useState('');
+  const [evaTypeOption, setEvaTypeOption] = useState('');
+  const [students, setStudents] = useState([]); // Array of students
   const [recitationValues, setRecitationValues] = useState({});
   const [oralValues, setOralValues] = useState({});
   const [lectureValues, setLectureValues] = useState({});
   const [ecritValues, setEcritValues] = useState({});
+
+  const handleClasseChange = async (selectedOption) => {
+    setClasse(selectedOption.value);
+    try {
+      const response = await axios.get(`http://localhost:5000/api/students?classe=${selectedOption.label}`);
+      setStudents(response.data);
+    } catch (error) {
+      console.error('Error fetching students:', error);
+    }
+  };
 
   const handleRecitationChange = (index, value) => {
     setRecitationValues({ ...recitationValues, [index]: value });
@@ -41,6 +45,27 @@ function AddNote() {
     return Object.values(values).reduce((total, value) => total + (parseFloat(value) || 0), 0);
   };
 
+  const handleSubmit = async () => {
+    const total = calculateTotal(recitationValues) + calculateTotal(oralValues) + calculateTotal(lectureValues) + calculateTotal(ecritValues);
+    const newNote = {
+      classe,
+      evaluationType: evaTypeOption,
+      recitation: recitationValues,
+      oral: oralValues,
+      lecture: lectureValues,
+      ecrit: ecritValues,
+      total
+    };
+
+    try {
+      await axios.post('http://localhost:5000/api/notes', newNote);
+      alert('Note added successfully!');
+    } catch (error) {
+      console.error('Error adding note:', error);
+      alert('Error adding note');
+    }
+  };
+
   return (
     <div>
       <PageTitle motherMenu={'Note'} activeMenu={'Attribuer les notes'} />
@@ -51,25 +76,13 @@ function AddNote() {
               <div className="col-sm-6">
                 <div className="form-group">
                   <label className="form-label">Classe</label>
-                  <Select isSearchable={false} options={ClasseOption} className="custom-react-select" value={classe} onChange={(e) => setClasse(e.target.value)} />
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <label className="form-label">Groupe</label>
-                  <Select isSearchable={false} options={groupeOption} className="custom-react-select" value={groupeOption} onChange={(e) => setGroupeOption(e.target.value)} />
+                  <Select isSearchable={false} options={ClasseOption} className="custom-react-select" value={ClasseOption.find((opt) => opt.value === classe)} onChange={handleClasseChange} />
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="form-group">
                   <label className="form-label">Type d'évaluation</label>
-                  <Select isSearchable={false} options={EvaluationTypeOption} className="custom-react-select" value={evaTypeOption} onChange={(e) => setEvaTypeOption(e.target.value)} />
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <label className="form-label">Type d'attribution de note</label>
-                  <Select isSearchable={false} options={NoteOption} className="custom-react-select" value={noteOption} onChange={(e) => setNoteOption(e.target.value)} />
+                  <Select isSearchable={false} options={EvaluationTypeOption} className="custom-react-select" value={EvaluationTypeOption.find((opt) => opt.value === evaTypeOption)} onChange={(e) => setEvaTypeOption(e.value)} />
                 </div>
               </div>
             </Form>
@@ -97,14 +110,14 @@ function AddNote() {
                       <tr>
                         <th className='text-secondary '>Nom et prénom</th>
                         {RecitationCritere.map((d, i) => (
-                          <th key={i} >
+                          <th key={i}>
                             <OverlayTrigger
-                              trigger="hover" // Change trigger as needed (hover, click, etc.)
-                              placement="top" // Adjust placement as needed
+                              trigger="hover"
+                              placement="top"
                               overlay={
                                 <Tooltip className='toltip-popover' id={`popover-positioned-${i}`}>
                                   <strong className="p-2 d-block">
-                                  {d.text}
+                                    {d.text}
                                   </strong>
                                 </Tooltip>
                               }
@@ -117,14 +130,14 @@ function AddNote() {
                       </tr>
                     </thead>
                     <tbody>
-                      {student.map((student, index) => (
+                      {students.map((student, index) => (
                         <tr key={index}>
-                          <td>{student.name}</td>
+                          <td>{student.firstName} {student.lastName}</td>
                           {RecitationCritere.map((criterion, idx) => (
                             <td key={idx}>
                               <input value={recitationValues[`${index}-${idx}`] || ''}
-                              onChange={(e) => handleRecitationChange(`${index}-${idx}`, e.target.value)} 
-                              style={{ width: '90px' }} />
+                                onChange={(e) => handleRecitationChange(`${index}-${idx}`, e.target.value)}
+                                style={{ width: '90px' }} />
                             </td>
                           ))}
                           <td>{calculateTotal(recitationValues)}</td>
@@ -141,12 +154,12 @@ function AddNote() {
                         {OralCritere.map((d, i) => (
                           <th key={i}>
                             <OverlayTrigger
-                              trigger="hover" // Change trigger as needed (hover, click, etc.)
-                              placement="top" // Adjust placement as needed
+                              trigger="hover"
+                              placement="top"
                               overlay={
                                 <Tooltip className='toltip-popover' id={`popover-positioned-${i}`}>
                                   <strong className="p-2 d-block">
-                                  {d.text}
+                                    {d.text}
                                   </strong>
                                 </Tooltip>
                               }
@@ -159,111 +172,112 @@ function AddNote() {
                       </tr>
                     </thead>
                     <tbody>
-                      {student.map((student, index) => (
+                      {students.map((student, index) => (
                         <tr key={index}>
-                          <td>{student.name}</td>
+                          <td>{student.firstName} {student.lastName}</td>
                           {OralCritere.map((criterion, idx) => (
                             <td key={idx}>
                               <input value={oralValues[`${index}-${idx}`] || ''} onChange={(e) => handleOralChange(`${index}-${idx}`, e.target.value)} style={{ width: '70px' }} />
-                            </td>
-                          ))}
-                          <td>{calculateTotal(oralValues)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </TabPane>
-                <TabPane eventKey="lecture">
-                  <Table bordered>
-                    <thead className="table-active">
-                      <tr>
-                        <th className='text-secondary '>Nom et prénom</th>
-                        {LectureCritere.map((d, i) => (
-                          <th key={i}>
-                            <OverlayTrigger
-                              trigger="hover" // Change trigger as needed (hover, click, etc.)
-                              placement="top" // Adjust placement as needed
-                              overlay={
-                                <Tooltip className='toltip-popover' id={`popover-positioned-${i}`}>
-                                  <strong className="p-2 d-block">
-                                  {d.text}
-                                  </strong>
-                                </Tooltip>
-                              }
-                            >
-                              <Button style={{ width: '70px' }} variant="secondary tp-btn-light">{d.title}</Button>
-                            </OverlayTrigger>
-                          </th>
+                          </td>
                         ))}
-                        <th className='text-secondary '>Totale</th>
+                        <td>{calculateTotal(oralValues)}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {student.map((student, index) => (
-                        <tr key={index}>
-                          <td>{student.name}</td>
-                          {LectureCritere.map((criterion, idx) => (
-                            <td key={idx}>
-                              <input value={lectureValues[`${index}-${idx}`] || ''} 
+                    ))}
+                  </tbody>
+                </Table>
+              </TabPane>
+              <TabPane eventKey="lecture">
+                <Table bordered>
+                  <thead className="table-active">
+                    <tr>
+                      <th className='text-secondary '>Nom et prénom</th>
+                      {LectureCritere.map((d, i) => (
+                        <th key={i}>
+                          <OverlayTrigger
+                            trigger="hover"
+                            placement="top"
+                            overlay={
+                              <Tooltip className='toltip-popover' id={`popover-positioned-${i}`}>
+                                <strong className="p-2 d-block">
+                                  {d.text}
+                                </strong>
+                              </Tooltip>
+                            }
+                          >
+                            <Button style={{ width: '70px' }} variant="secondary tp-btn-light">{d.title}</Button>
+                          </OverlayTrigger>
+                        </th>
+                      ))}
+                      <th className='text-secondary '>Totale</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {students.map((student, index) => (
+                      <tr key={index}>
+                        <td>{student.firstName} {student.lastName}</td>
+                        {LectureCritere.map((criterion, idx) => (
+                          <td key={idx}>
+                            <input value={lectureValues[`${index}-${idx}`] || ''}
                               onChange={(e) => handleLectureChange(`${index}-${idx}`, e.target.value)}
-                               style={{ width: '70px' }} />
-                            </td>
-                          ))}
-                          <td>{calculateTotal(lectureValues)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </TabPane>
-                <TabPane eventKey="ecrit">
-                  <Table bordered>
-                    <thead className="table-active">
-                      <tr>
-                        <th className='text-secondary '>Nom et prénom</th>
-                        {EcritCritere.map((d, i) => (
-                          <th key={i}>
-                            <OverlayTrigger
-                              trigger="hover" // Change trigger as needed (hover, click, etc.)
-                              placement="top" // Adjust placement as needed
-                              overlay={
-                                <Tooltip className='toltip-popover' id={`popover-positioned-${i}`}>
-                                  <strong className="p-2 d-block">
-                                  {d.text}
-                                  </strong>
-                                </Tooltip>
-                              }
-                            >
-                              <Button style={{ width: '70px' }} variant="secondary tp-btn-light">{d.title}</Button>
-                            </OverlayTrigger>
-                          </th>
-                        ))}
-                        <th className='text-secondary '>Totale</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {student.map((student, index) => (
-                        <tr key={index}>
-                          <td>{student.name}</td>
-                          {EcritCritere.map((criterion, idx) => (
-                            <td key={idx}>
-                              <input value={ecritValues[`${index}-${idx}`] || ''} 
-                              onChange={(e) => handleEcritChange(`${index}-${idx}`, e.target.value)} 
                               style={{ width: '70px' }} />
-                            </td>
-                          ))}
-                          <td>{calculateTotal(ecritValues)}</td>
-                        </tr>
+                          </td>
+                        ))}
+                        <td>{calculateTotal(lectureValues)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </TabPane>
+              <TabPane eventKey="ecrit">
+                <Table bordered>
+                  <thead className="table-active">
+                    <tr>
+                      <th className='text-secondary '>Nom et prénom</th>
+                      {EcritCritere.map((d, i) => (
+                        <th key={i}>
+                          <OverlayTrigger
+                            trigger="hover"
+                            placement="top"
+                            overlay={
+                              <Tooltip className='toltip-popover' id={`popover-positioned-${i}`}>
+                                <strong className="p-2 d-block">
+                                  {d.text}
+                                </strong>
+                              </Tooltip>
+                            }
+                          >
+                            <Button style={{ width: '70px' }} variant="secondary tp-btn-light">{d.title}</Button>
+                          </OverlayTrigger>
+                        </th>
                       ))}
-                    </tbody>
-                  </Table>
-                </TabPane>
-              </TabContent>
-            </TabContainer>
-          </CardBody>
-        </Card>
-      </Row>
-    </div>
-  )
+                      <th className='text-secondary '>Totale</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {students.map((student, index) => (
+                      <tr key={index}>
+                        <td>{student.firstName} {student.lastName}</td>
+                        {EcritCritere.map((criterion, idx) => (
+                          <td key={idx}>
+                            <input value={ecritValues[`${index}-${idx}`] || ''}
+                              onChange={(e) => handleEcritChange(`${index}-${idx}`, e.target.value)}
+                              style={{ width: '70px' }} />
+                          </td>
+                        ))}
+                        <td>{calculateTotal(ecritValues)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </TabPane>
+            </TabContent>
+          </TabContainer>
+        </CardBody>
+      </Card>
+      <Button className="btn btn-primary mt-3" onClick={handleSubmit}>Enregistrer la Note</Button>
+    </Row>
+  </div>
+)
 }
 
-export default AddNote
+export default AddNote;

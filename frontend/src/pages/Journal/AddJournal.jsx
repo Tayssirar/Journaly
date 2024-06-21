@@ -11,11 +11,9 @@ import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import axios from 'axios';
 
-const fetchJournalData = async (classe, module, journee) => {
+const fetchJournalData = async (classe, subTheme, journées) => {
   try {
-    const response = await axios.get('/api/journal', {
-      params: { classe, module, journee }
-    });
+    const response = await axios.get(`http://localhost:5000/api/plans/${classe}/${subTheme}/${journées}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching the journal data:", error);
@@ -28,7 +26,7 @@ const AddJournal = () => {
   const [theme, setTheme] = useState('');
   const [subTheme, setSubTheme] = useState('');
   const [education_a, setEducation_a] = useState('');  
-  const [journee, setJournee] = useState('');
+  const [journées, setJournee] = useState('');
   const [date, setDate] = useState('');
   const [time1, onChange] = useState(new Date());
   const [time2, onChange2] = useState('10:00');
@@ -141,8 +139,8 @@ const AddJournal = () => {
   };
 
   const fetchAndSetJournalData = async () => {
-    if (classe && subTheme && journee) {
-      const journalData = await fetchJournalData(classe, subTheme, journee);
+    if (classe && subTheme && journées) {
+      const journalData = await fetchJournalData(classe, subTheme, journées);
       if (journalData) {
         const updatedSections = sections.map(section => {
           const journalSection = journalData.sections.find(s => s.id === section.id);
@@ -166,7 +164,7 @@ const AddJournal = () => {
 
   useEffect(() => {
     fetchAndSetJournalData();
-  }, [classe, subTheme, journee]);
+  }, [classe, subTheme, journées]);
 
   return (
     <>
@@ -242,13 +240,13 @@ const AddJournal = () => {
                         </div>
                         {/* Journee */}
                         <div className='col-md-6 mb-3'>
-                          <label htmlFor='journee'>Journée</label>
+                          <label htmlFor='journées'>Journée</label>
                           <input
                             type='text'
                             className='form-control'
-                            id='journee'
+                            id='journées'
                             placeholder=''
-                            value={journee}
+                            value={journées}
                             onChange={handleJourneeChange}
                             required
                           />
@@ -285,7 +283,7 @@ const AddJournal = () => {
             theme={theme}
             subTheme={subTheme}
             education_a={education_a}
-            journee={journee}
+            journées={journées}
             date={date}
             time1={time1}
             time2={time2}
